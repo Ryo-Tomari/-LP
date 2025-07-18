@@ -12,9 +12,292 @@ body {
   padding: 0 16px;     /* 左右にちょっと内側の余白 */
 }
 
-/* 画像は wrapper 幅いっぱいに広げる */
-.image {
-  display: block;      /* インライン要素の隙間を消す */
-  width: 100%;         /* wrapper にフィット */
-  height: auto;        /* 縦横比維持 */
+/* ★ 親コンテナを相対位置にしておく */
+.hero-container {
+  position: relative;
+  width: 100%;           /* 必要に応じて幅を調整 */
+  max-width: 600px;      /* 例：最大幅指定 */
+  margin: 0 auto;
+}
+
+/* 既存の背景画像はそのままフィットさせる */
+.hero-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 右上からスライドインする画像 */
+.incoming {
+  position: absolute;
+  top: 100px;               /* お好きな高さに */
+  right: -150px;           /* 初期は外に隠しておく */
+  width: 300px;            /* サイズ例 */
+  opacity: 0;
+  animation: slide-in 2s ease-out forwards,pulse-scale 3s ease-in-out infinite 2s
+}
+
+/* 左上から入る */
+.incoming-left {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 300px;            /* サイズ例 */
+  opacity: 0;
+  animation: slide-in 2s ease-out forwards,pulse-scale 3s ease-in-out infinite 2s
+  /* アニメーション等は省略 */
+}
+
+/* ■ 右からスルッと入ってくる（right＋opacityのみ） */
+@keyframes slide-in {
+  from {
+    right: -150px;
+    opacity: 0;
+  }
+  to {
+    right: 20px;   /* 停止させたい位置 */
+    opacity: 1;
+  }
+}
+
+/* ■ 停止後に大きく小さく揺れる（scaleのみ） */
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+/* 追加：左からスルッと入るラッパーを絶対配置に */
+.incoming-left-wrapper {
+  position: absolute;    /* → absolute に変える */
+  top: 300px;             /* 背景画像の上で何px下げるか */
+  left: 275px;            /* 左から何px内側に寄せるか */
+  width: 300px;          /* 幅はお好みで */
+  height: 130px;         /* 高さ調整もお好みで */
+  animation:
+    slide-in-left 2s ease-out forwards,
+    pulse-scale     3s ease-in-out infinite 2s;
+  z-index: 1;            /* 背景画像より前面に */
+}
+
+/* 追加：左から入ってくる画像 */
+.incoming-left {
+  display: block;
+  width: 100%;             /* wrapper にフィット */
+  opacity: 0;
+  transform: translateX(-150px);
+  transform-origin: center center;
+  animation:
+    slide-in-left 2s ease-out forwards,
+    pulse-scale 3s ease-in-out infinite 2s;
+}
+
+/* 追加：左からスライドイン */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 既存の pulse-scale を再利用 */
+/* 0%–100%: scale(1)→(1.05)→(0.95)→(1.02)→(1)  */
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); }
+  25%      { transform: scale(1.05); }
+  50%      { transform: scale(0.95); }
+  75%      { transform: scale(1.02); }
+}
+
+.btn {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 12px 24px;
+  border: none;                      /* 枠線は消すか透明に */
+  border-radius: 50px;
+  color: #fff;                       /* 文字色は読みやすく白に */
+  font-size: 50px;
+  text-decoration: none;
+  text-align: center;
+  
+  /* 虹色グラデーション背景 */
+  background: linear-gradient(
+    60deg,
+    red, orange, yellow, lime, aqua, blue, magenta, red
+  );
+  background-size: 800% 800%;
+  animation: rainbow-bg 3s linear infinite;
+  
+  /* その他のエフェクト */
+  transform-origin: center center;
+  transition: transform 0.2s ease;
+  animation: btn-pulse 4s ease-in-out infinite, rainbow-bg 3s linear infinite;
+}
+
+/* ホバーでちょい拡大 */
+.btn:hover {
+  transform: scale(1.1);
+}
+
+/* ゆったりパルス */
+@keyframes btn-pulse {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.05); }
+}
+
+/* 背景グラデーションを走らせるアニメ */
+@keyframes rainbow-bg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.features {
+  /* セクション全体を中央寄せ */
+  text-align: center;
+  padding: 20px;           /* お好みで上下余白 */
+}
+
+/* UL自体をインラインブロック化して中央に */
+.features ul {
+  display: inline-block;
+  text-align: left;        /* 各行は左揃え */
+  padding: 0;
+  margin: 0 0 16px;        /* 下に余白 */
+  list-style: none;        /* デフォルトの■を消す */
+}
+
+/* LIを縦に並べつつ間隔を取る */
+.features ul li {
+  margin-bottom: 8px;      /* 項目間 */
+  line-height: 1.5;
+}
+
+/* 注釈も中央揃え */
+.features .note {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+}
+/* ここからお急ぎならのCSS */
+/* カード全体 */
+.support-card {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  box-sizing: border-box;
+  background-color: #fff;   /* ここでカード全体を白に */
+  border-radius: 12px;
+  overflow: hidden;         /* はみ出しを隠す */
+}
+
+/* ヘッダー */
+.support-card .card-header {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ff5722;
+  color: #fff;
+  text-align: center;
+  padding: 12px 16px;
+}
+
+/* リスト部分 */
+.support-card .card-list {
+  list-style: none;
+  margin: 0;                /* 外側余白リセット */
+  padding: 16px 0;          /* 上下余白、左右0 */
+  background-color: #fff;   /* 白背景 */
+  width: 100%;
+  box-sizing: border-box;   /* padding込みで幅100% */
+  text-align: center;       /* テキスト中央 */
+}
+
+/* 各項目 */
+.support-card .card-list li {
+  margin: 8px 0;            /* 項目間の余白 */
+}
+
+/* 脚注 */
+.support-card .card-footnote {
+  margin: 0;
+  padding: 12px 16px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+}
+/* リストをインラインブロック化して中央に */
+.card-list {
+  list-style-type: disc;       /* デフォルトの黒丸マーカー */
+  list-style-position: inside; /* マーカーをテキスト内側に */
+  margin: 0 auto 16px;         /* 上下マージン＋左右自動で中央寄せ */
+  display: inline-block;       /* 幅を内容にフィットさせる */
+  text-align: left;            /* 各項目は左揃えのまま */
+}
+
+/* リスト項目の間隔 */
+.card-list li {
+  margin-bottom: 8px;
+}
+
+.recommend {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #FF6633;
+}
+/* カルーセル本体 */
+.carousel {
+  position: relative;
+  width: 500px;    /* お好みで調整 */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: block;    /* ブロック要素に変換 */
+  margin: 0 auto;    /* 上下マージン0、左右自動で中央 */
+}
+
+/* スライド群はそのまま flex */
+.slides {
+  display: flex;
+  animation: scroll-slow 30s linear infinite;
+  /* 自動スクロール用アニメはそのまま */
+}
+
+/* aタグをフレックスアイテム化＆幅50% */
+.slides .slide-link {
+  flex-shrink: 0;     /* 縮まないように */
+  width: 50%;         /* 2枚ずつ表示したいなら50% */
+  display: block;     /* ブロック化して幅を効かせる */
+}
+
+/* 画像は親幅にフィット */
+.slides .slide-link img {
+  display: block;
+  width: 100%;        /* 親(.slide-link)幅いっぱい */
+  height: auto;       /* アスペクト比維持 */
+}
+
+@keyframes scroll-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
