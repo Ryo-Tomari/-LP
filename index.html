@@ -1,20 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <img src="images/meta_即日入寮0708_1080x1920.jpg" class="image" alt="即日入寮のメタビジュアル" />
-    </div>
-    <div></div>
-    <p>07/17練習分です。</p>
-    <p id="text">泊</p>
-    <p class="magofuku">孫福</p>
-    <p class="magofuku">夏井</p>
-    <p class="magofuku">tesuto</p>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寮ナビ</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="hero-container">
+  <!-- もとの背景画像 -->
+  <img src="images/背景２.png" class="hero-bg" alt="寮付き 求人">
+
+  <!-- 右上から入るエフェクト（既存） -->
+  <div class="incoming-wrapper">
+    <img src="images/スグに.png" class="incoming" alt="即入寮">
+  </div>
+
+  <!-- ★ここに移動★ 左上から入るエフェクト -->
+  <div class="incoming-left-wrapper">
+    <img src="images/住み込み!.png" class="incoming-left" alt="住み込み 求人">
+  </div>
+</div>
+
+
+<a href="#" class="btn">無料相談はこちらから</a>
+<section class="support-card">
+  <div class="card-header">
+    他社で受けた<br><span>こんな嫌なことはありませんか？</span></div>
+  <ul class="card-list">
+    <li>面接を受けても紹介してもらえなかった。</li>
+    <li>待機寮がないから入寮できなかった。</li>
+    <li>案内された宿泊所が汚くて泊まれない。</li>
+    <li>紹介された求人が自分に合わない。。</li>
+  </ul>
+  <p class="card-footnote">たとえばこんなお仕事がスグに決まる！</p>
+</section>
+
+<section class="features">
+  <h1>▽寮ナビなら▽</h1>
+  <h3>\安心のフルサポート/</h3>
+    <ul>
+      <li>面接会場への交通費支援</li>
+      <li>食料／宿泊場所の支援</li>
+      <li>築5年以内の待機寮完備</li>
+      <li>ご自身名義の携帯契約の支援</li>
+      <li>赴任費用の支援</li>
+      <li>引っ越し・荷物輸送の支援</li>
+    </ul>
+    <p class="note">※一部規定、上限があります。詳しくは応募後にご相談ください。</p>
+  </section>
+
+
+<h1 class="recommend">▽実際の求人例はこちら▽</h1>
+ <div class="carousel">
+<div class="slides">
+  <a href="https://example.com/application-form" class="slide-link">
+    <img src="images/1_自動車工場.webp" alt="自動車工場" class="slide">
+  </a>
+  <a href="https://example.com/application-form" class="slide-link">
+    <img src="images/2_半導体.webp" alt="半導体工場" class="slide">
+  </a>
+  <a href="https://example.com/application-form" class="slide-link">
+    <img src="images/3_家電.webp" alt="家電工場" class="slide">
+  </a>
+  <a href="https://example.com/application-form" class="slide-link">
+    <img src="images/4_物流.webp" alt="物流倉庫" class="slide">
+  </a>
+</div>
+  <script>
+    const slides = document.querySelector('.slides');
+    const total = document.querySelectorAll('.slide').length;
+    let idx = 0;
+
+    document.querySelector('.next').addEventListener('click', () => {
+      idx = (idx + 1) % total;
+      slides.style.transform = `translateX(${-100 * idx}%)`;
+    });
+    document.querySelector('.prev').addEventListener('click', () => {
+      idx = (idx - 1 + total) % total;
+      slides.style.transform = `translateX(${-100 * idx}%)`;
+    });
+  </script>
+</body>
 </html>
