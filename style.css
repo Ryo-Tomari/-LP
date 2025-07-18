@@ -1,0 +1,20 @@
+/* ページ全体の背景色を真似するなら */
+body {
+  background-color: #f7f4e8;  /* kyoei-job の背景色に合わせる例 */
+  margin: 0;
+  padding: 0;
+}
+
+/* wrapper: 中央寄せ＆最大幅設定 */
+.wrapper {
+  max-width: 600px;    /* PCでの見やすい横幅に調整してちょーよ */
+  margin: 0 auto;      /* 上下0、左右自動で中央に寄せる */
+  padding: 0 16px;     /* 左右にちょっと内側の余白 */
+}
+
+/* 画像は wrapper 幅いっぱいに広げる */
+.image {
+  display: block;      /* インライン要素の隙間を消す */
+  width: 100%;         /* wrapper にフィット */
+  height: auto;        /* 縦横比維持 */
+}
