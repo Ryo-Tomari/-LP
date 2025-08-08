@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<!-- オーバーレイ -->
+<div id="popupOverlay" class="popup-overlay"></div>
+
+<!-- ポップアップ本体 -->
+<div id="exitPopup" class="exit-popup">
+  <button id="closePopup" class="popup-close">×</button>
+  <h2>ちょっとお待ちください！</h2>
+  <p>応募がまだ完了しておりません！！<br>▽稼げる求人はこちらから▽</p>
+  <a href="https://example.com/offer" class="btn">即入寮<br>できる<br>求人に<br>応募する</a>
+</div>
+
 <div class="hero-container">
   <!-- もとの背景画像 -->
   <img src="images/背景２.png" class="hero-bg" alt="寮付き 求人">
@@ -27,59 +38,564 @@
 <section class="support-card">
   <div class="card-header">
     他社で受けた<br><span>こんな嫌なことはありませんか？</span></div>
-  <ul class="card-list">
-    <li>面接を受けても紹介してもらえなかった。</li>
-    <li>待機寮がないから入寮できなかった。</li>
-    <li>案内された宿泊所が汚くて泊まれない。</li>
-    <li>紹介された求人が自分に合わない。。</li>
-  </ul>
+
+    <img src="images/お悩み.webp" alt="お悩み" class="trouble-img">
   <p class="card-footnote">たとえばこんなお仕事がスグに決まる！</p>
 </section>
 
-<section class="features">
-  <h1>▽寮ナビなら▽</h1>
-  <h3>\安心のフルサポート/</h3>
-    <ul>
-      <li>面接会場への交通費支援</li>
-      <li>食料／宿泊場所の支援</li>
-      <li>築5年以内の待機寮完備</li>
-      <li>ご自身名義の携帯契約の支援</li>
-      <li>赴任費用の支援</li>
-      <li>引っ越し・荷物輸送の支援</li>
-    </ul>
-    <p class="note">※一部規定、上限があります。詳しくは応募後にご相談ください。</p>
-  </section>
+<section class="job-features">
+  <h2 class="job-features__title">▽寮ナビなら▽</h2>
+  <h3 class="job-features__title">\安心のフルサポート/</h3>
+  <div class="job-features__grid">
+    <div class="job-features__item">
+      <h3>面接会場への<br>交通費支援</h3>
+      <img src="images/寮ナビサポート7.webp" alt="走る人のイラスト">
+      <p>最短当日で面接可能！</p>
+    </div>
+    <div class="job-features__item">
+      <h3>食料／宿泊場所の支援</h3>
+      <img src="images/寮ナビサポート2.webp" alt="0円のコイン">
+      <p>宿泊や食費、生活費など<br>サポートもあります</p>
+    </div>
+    <div class="job-features__item">
+      <h3>築5年以内の<br>待機寮完備</h3>
+      <img src="images/寮ナビサポート3.webp" alt="お金のイラスト">
+      <p>もう共同の部屋とは<br>おさらばしましょう</p>
+    </div>
+    <div class="job-features__item">
+      <h3>ご自身名義の<br>携帯契約の支援</h3>
+      <img src="images/寮ナビサポート4.webp" alt="日本地図のイラスト">
+      <p>携帯がブラックでも<br>ご相談ください！</p>
+    </div>
+    <div class="job-features__item">
+      <h3>赴任費用の支援</h3>
+      <img src="images/寮ナビサポート6.webp" alt="家のイラスト">
+      <p>移動費は弊社負担！<br>お金がなくても安心！</p>
+    </div>
+    <div class="job-features__item">
+      <h3>引っ越し・荷物輸送の支援</h3>
+      <img src="images/寮ナビサポート5.webp" alt="作業員のイラスト">
+      <p>今のおうちの荷物など<br>移動のお手伝いも全力で◎</p>
+    </div>
+  </div>
+</section>
+
 
 
 <h1 class="recommend">▽実際の求人例はこちら▽</h1>
- <div class="carousel">
-<div class="slides">
-  <a href="https://example.com/application-form" class="slide-link">
-    <img src="images/1_自動車工場.webp" alt="自動車工場" class="slide">
-  </a>
-  <a href="https://example.com/application-form" class="slide-link">
-    <img src="images/2_半導体.webp" alt="半導体工場" class="slide">
-  </a>
-  <a href="https://example.com/application-form" class="slide-link">
-    <img src="images/3_家電.webp" alt="家電工場" class="slide">
-  </a>
-  <a href="https://example.com/application-form" class="slide-link">
-    <img src="images/4_物流.webp" alt="物流倉庫" class="slide">
-  </a>
-</div>
-  <script>
-    const slides = document.querySelector('.slides');
-    const total = document.querySelectorAll('.slide').length;
-    let idx = 0;
 
-    document.querySelector('.next').addEventListener('click', () => {
-      idx = (idx + 1) % total;
-      slides.style.transform = `translateX(${-100 * idx}%)`;
-    });
-    document.querySelector('.prev').addEventListener('click', () => {
-      idx = (idx - 1 + total) % total;
-      slides.style.transform = `translateX(${-100 * idx}%)`;
-    });
-  </script>
+<!-- 求人カルーセル本体 -->
+<div class="job-carousel">
+  <div class="job-slides">
+    <!-- 求人1: 自動車工場 -->
+    <div class="job-slide">
+      <div class="job-card">
+        <img src="images/1_自動車工場.webp" alt="自動車工場" class="job-image">
+        <div class="job-content">
+          <h3 class="job-title">自動車工場での製造作業</h3>
+          <div class="job-details">
+            <p class="job-location">📍 愛知県豊田市</p>
+            <p class="job-salary">💰 時給1,500円〜1,800円</p>
+            <p class="job-hours">⏰ 8:00〜17:00（残業あり）</p>
+            <p class="job-benefits">🏠 寮完備・食事付き</p>
+            <p class="job-description">自動車部品の組立・検品作業。未経験OK！</p>
+          </div>
+          <a href="#application-form" class="job-apply-btn">この求人に応募</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 求人2: 半導体工場 -->
+    <div class="job-slide">
+      <div class="job-card">
+        <img src="images/2_半導体.webp" alt="半導体工場" class="job-image">
+        <div class="job-content">
+          <h3 class="job-title">半導体工場での製造作業</h3>
+          <div class="job-details">
+            <p class="job-location">📍 茨城県つくば市</p>
+            <p class="job-salary">💰 時給1,600円〜2,000円</p>
+            <p class="job-hours">⏰ 夜勤シフト制</p>
+            <p class="job-benefits">🏠 寮完備・夜勤手当</p>
+            <p class="job-description">半導体チップの製造・検査作業。高収入！</p>
+          </div>
+          <a href="#application-form" class="job-apply-btn">この求人に応募</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 求人3: 家電工場 -->
+    <div class="job-slide">
+      <div class="job-card">
+        <img src="images/3_家電.webp" alt="家電工場" class="job-image">
+        <div class="job-content">
+          <h3 class="job-title">家電工場での製造作業</h3>
+          <div class="job-details">
+            <p class="job-location">📍 静岡県浜松市</p>
+            <p class="job-salary">💰 時給1,400円〜1,700円</p>
+            <p class="job-hours">⏰ 8:30〜17:30</p>
+            <p class="job-benefits">🏠 寮完備・交通費支給</p>
+            <p class="job-description">家電製品の組立・梱包作業。安定した仕事！</p>
+          </div>
+          <a href="#application-form" class="job-apply-btn">この求人に応募</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 求人4: 物流倉庫 -->
+    <div class="job-slide">
+      <div class="job-card">
+        <img src="images/4_物流.webp" alt="物流倉庫" class="job-image">
+        <div class="job-content">
+          <h3 class="job-title">物流倉庫での作業</h3>
+          <div class="job-details">
+            <p class="job-location">📍 埼玉県さいたま市</p>
+            <p class="job-salary">💰 時給1,300円〜1,600円</p>
+            <p class="job-hours">⏰ 早朝・夜間シフト</p>
+            <p class="job-benefits">🏠 寮完備・シフト手当</p>
+            <p class="job-description">商品のピッキング・出荷作業。体力に自信のある方！</p>
+          </div>
+          <a href="#application-form" class="job-apply-btn">この求人に応募</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ナビゲーションボタン -->
+  <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">‹</button>
+  <button class="carousel-btn next-btn" onclick="moveSlide(1)">›</button>
+
+  <!-- インジケーター -->
+  <div class="carousel-indicators">
+    <span class="indicator active" onclick="currentSlide(1)"></span>
+    <span class="indicator" onclick="currentSlide(2)"></span>
+    <span class="indicator" onclick="currentSlide(3)"></span>
+    <span class="indicator" onclick="currentSlide(4)"></span>
+  </div>
+</div>
+
+<!-- カルーセルスクリプト -->
+<script>
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.job-slide');
+const indicators = document.querySelectorAll('.indicator');
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    if (i === index) {
+      slide.style.opacity = '1';
+      slide.style.zIndex = '1';
+    } else {
+      slide.style.opacity = '0';
+      slide.style.zIndex = '0';
+    }
+  });
+  
+  indicators.forEach((indicator, i) => {
+    indicator.classList.toggle('active', i === index);
+  });
+}
+
+function moveSlide(direction) {
+  currentSlideIndex = (currentSlideIndex + direction + slides.length) % slides.length;
+  showSlide(currentSlideIndex);
+}
+
+function currentSlide(index) {
+  currentSlideIndex = index - 1;
+  showSlide(currentSlideIndex);
+}
+
+// 初期表示
+showSlide(0);
+
+// 自動スライド（5秒間隔）
+setInterval(() => {
+  moveSlide(1);
+}, 5000);
+</script>
+
+<!-- ⑤ 応募ボタンはカルーセルとは別エリアに -->
+<a href="https://example.com/application-form" class="btn">無料相談はこちらから</a>
+
+<section class="faq">
+  <h2 class="faq__title">▽よくある質問▽</h2>
+  
+  <details class="faq__item">
+    <summary class="faq__question">
+      Q. いつから寮に入れますか？
+    </summary>
+    <div class="faq__answer">
+      A. 最短で応募日にそのまま入寮できます。<br>就業先の空き物件がない場合でも、待機寮で入寮日まで待機実績もあります。
+      <br>また食事支援や身の回りのサポートも行っています。<br>条件によりサポート内容は異なりますのでご相談ください。
+    </div>
+  </details>
+  
+  <details class="faq__item">
+    <summary class="faq__question">
+      Q. 今日寮を出なければいけないのですが、大丈夫ですか？
+    </summary>
+    <div class="faq__answer">
+      A. 大丈夫です！まずはご相談ください！<br>諸規定がありますが、引っ越しサポートやホテル支援も行っておりますので<br>一度ご相談ください！
+    </div>
+  </details>
+  
+  <details class="faq__item">
+    <summary class="faq__question">
+      Q. 携帯が使えないのですが...
+    </summary>
+    <div class="faq__answer">
+      A. LINEやメールでの対応可能です！<br>応募後の自動返信メールにご返信いただくか<br>応募完了ページにLINEの友達追加がございます！
+      <br>携帯の契約に関する支援も行っています。<br>ご応募の上、ご相談お待ちしております！
+    </div>
+  </details>
+
+  <details class="faq__item">
+    <summary class="faq__question">
+      Q. すぐにでもお金が欲しいです！
+    </summary>
+    <div class="faq__answer">
+      A. 最短即日お支払い！前払いや支援もあります。
+      <br>前払いや入社時に特典がある求人はもちろん、<br>
+      寮ナビでは働く前に必要な生活支援も行っています！
+    </div>
+  </details>
+
+    <details class="faq__item">
+    <summary class="faq__question">
+      Q. 仕事内容を教えてください。
+    </summary>
+    <div class="faq__answer">
+      A. 工場での製造作業が主な職種です。<br>
+      組立・組付け・マシンオペレーター・検品・検査などの作業で、<br>
+      取り扱う製品は手のひらサイズのものから飛行機の部品まで様々です。
+    </div>
+  </details>
+
+      <details class="faq__item">
+    <summary class="faq__question">
+      Q. どれくらい稼げますか?
+    </summary>
+    <div class="faq__answer">
+      A. 月収40万円以上の実績多数！<br>エリアや配属によりますが、未経験OKのシンプルな作業で
+      <br>時給は1,500円以上が多数！高収入の案件への紹介が可能で、前職の倍以上稼ぐ方もいます◎
+    </div>
+  </details>
+
+        <details class="faq__item">
+    <summary class="faq__question">
+      Q. 働きたくない企業があるのですが...
+    </summary>
+    <div class="faq__answer">
+      A. 何でもご相談ください！<br>「過去〇〇で嫌になった」などご相談いただければ、<br>
+      特定の企業を避けたり他の部署や担当者の紹介も可能なのでご安心ください。
+    </div>
+  </details>
+  <!-- ・・・必要なだけ繰り返し・・・ -->
+</section>
+
+<!-- フォームヘッダー -->
+<div class="form-card">
+  <div class="form-header">
+    <h2>↓すぐに応募したい方はこちら↓</h2>
+    <p>ご応募後、面接のご案内をいたします！</p>
+  </div>
+
+  <form action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="post" class="form-body">
+    <!-- 名前 -->
+    <div class="form-group">
+      <label>🟥 名前</label>
+      <input type="text" name="name" id="name" placeholder="例：田中太郎" required>
+      <small style="color: #666; font-size: 12px;">※ 漢字、ひらがな、カタカナで入力してください</small>
+    </div>
+
+    <!-- 性別 -->
+<div class="form-group gender">
+  <label>🟥性別</label>
+  <label><input type="radio" name="gender" value="男性" required> 男性</label>
+  <label><input type="radio" name="gender" value="女性" required> 女性</label>
+</div>
+
+<!-- 生年月日 -->
+<div class="form-group">
+  <label>🟥 生年月日</label>
+  <input type="text" name="birthday" id="birthday" placeholder="例：1992/01/23" required>
+  <small style="color: #666; font-size: 12px;">※ YYYY/MM/DD 形式で入力してください</small>
+</div>
+
+
+
+    <!-- メール -->
+    <div class="form-group">
+      <label>🟥 メール</label>
+      <input type="email" name="email" id="email" required>
+    </div>
+
+    <!-- 電話 -->
+    <div class="form-group">
+      <label>🟥 電話番号</label>
+      <input type="tel" name="tel" id="tel" placeholder="例：090-1234-5678" required>
+      <small style="color: #666; font-size: 12px;">※ ハイフンは自動で挿入されます</small>
+    </div>
+
+    <!-- 今いる場所 -->
+    <div class="form-group">
+      <label>🟥 今いる場所</label>
+      <select name="location" id="location" required>
+        <option value="">選んでください</option>
+        <option>北海道</option>
+        <option>青森県</option>
+        <option>岩手県</option>
+        <option>宮城県</option>
+        <option>秋田県</option>
+        <option>山形県</option>
+        <option>福島県</option>
+        <option>茨城県</option>
+        <option>栃木県</option>
+        <option>群馬県</option>
+        <option>埼玉県</option>
+        <option>千葉県</option>
+        <option>東京都</option>
+        <option>神奈川県</option>
+        <option>新潟県</option>
+        <option>富山県</option>
+        <option>石川県</option>
+        <option>福井県</option>
+        <option>山梨県</option>
+        <option>長野県</option>
+        <option>岐阜県</option>
+        <option>静岡県</option>
+        <option>愛知県</option>
+        <option>三重県</option>
+        <option>滋賀県</option>
+        <option>京都府</option>
+        <option>大阪府</option>
+        <option>兵庫県</option>
+        <option>奈良県</option>
+        <option>和歌山県</option>
+        <option>鳥取県</option>
+        <option>島根県</option>
+        <option>岡山県</option>
+        <option>広島県</option>
+        <option>山口県</option>
+        <option>徳島県</option>
+        <option>香川県</option>
+        <option>愛媛県</option>
+        <option>高知県</option>
+        <option>福岡県</option>
+        <option>佐賀県</option>
+        <option>長崎県</option>
+        <option>熊本県</option>
+        <option>大分県</option>
+        <option>宮崎県</option>
+        <option>鹿児島県</option>
+        <option>沖縄県</option>
+      </select>
+    </div>
+
+    <!-- チェックボックス -->
+    <div class="form-group checkbox">
+      <label><input type="checkbox" id="privacy" required> 個人情報保護方針に同意する</label>
+      <a href="https://kyoeicenter.com/privacy-policy" target="_blank">個人情報保護方針</a>
+    </div>
+
+    <!-- 送信 -->
+    <div class="form-group submit">
+      <button type="submit" onclick="validateForm(event)">送信</button>
+    </div>
+
+    <!-- reCAPTCHAをここに追加可能 -->
+  </form>
+</div>
+
+<script>
+// 名前の入力制限（漢字、ひらがな、カタカナ、スペースを許可）
+document.getElementById('name').addEventListener('input', function(e) {
+  let value = e.target.value;
+  
+  // 漢字、ひらがな、カタカナ、スペースのみ許可（英語、数字、記号は除外）
+  value = value.replace(/[０-９a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g, '');
+  
+  e.target.value = value;
+});
+
+// 電話番号の自動フォーマット
+document.getElementById('tel').addEventListener('input', function(e) {
+  let value = e.target.value;
+  
+  // 数字のみ抽出
+  value = value.replace(/[^0-9]/g, '');
+  
+  // 自動的にハイフンを挿入
+  if (value.length >= 3 && value.length <= 7) {
+    value = value.slice(0, 3) + '-' + value.slice(3);
+  } else if (value.length >= 8 && value.length <= 11) {
+    value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7);
+  } else if (value.length > 11) {
+    value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11);
+  }
+  
+  e.target.value = value;
+});
+
+// 生年月日の正規表現チェック
+document.getElementById('birthday').addEventListener('input', function(e) {
+  let value = e.target.value;
+  
+  // 数字とスラッシュのみ許可
+  value = value.replace(/[^0-9\/]/g, '');
+  
+  // 自動的にスラッシュを挿入
+  if (value.length >= 4 && value.charAt(4) !== '/') {
+    value = value.slice(0, 4) + '/' + value.slice(4);
+  }
+  if (value.length >= 7 && value.charAt(7) !== '/') {
+    value = value.slice(0, 7) + '/' + value.slice(7);
+  }
+  
+  // 最大10文字まで
+  if (value.length > 10) {
+    value = value.slice(0, 10);
+  }
+  
+  e.target.value = value;
+});
+
+// フォームバリデーション
+function validateForm(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('name').value.trim();
+  const gender = document.querySelector('input[name="gender"]:checked');
+  const birthday = document.getElementById('birthday').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const tel = document.getElementById('tel').value.trim();
+  const location = document.getElementById('location').value;
+  const privacy = document.getElementById('privacy').checked;
+  
+  let errorMessage = '';
+  
+  // 名前チェック
+  if (!name) {
+    errorMessage += '・名前を入力してください\n';
+  } else {
+    // 漢字、ひらがな、カタカナのチェック
+    const nameRegex = /^[一-龯ぁ-んーァ-ヶー\s]+$/;
+    if (!nameRegex.test(name)) {
+      errorMessage += '・名前は漢字、ひらがな、カタカナで入力してください\n';
+    } else {
+      // すべてカタカナの場合をチェック
+      const katakanaRegex = /^[ァ-ヶー\s]+$/;
+      if (katakanaRegex.test(name)) {
+        errorMessage += '・名前はカタカナのみでは入力できません。漢字またはひらがなを含めてください\n';
+      }
+      // すべて英語の場合をチェック
+      const englishRegex = /^[a-zA-Z\s]+$/;
+      if (englishRegex.test(name)) {
+        errorMessage += '・名前は英語のみでは入力できません。漢字またはひらがなで入力してください\n';
+      }
+    }
+  }
+  
+  // 性別チェック
+  if (!gender) {
+    errorMessage += '・性別を選択してください\n';
+  }
+  
+  // 生年月日チェック
+  if (!birthday) {
+    errorMessage += '・生年月日を入力してください\n';
+  } else {
+    const birthdayRegex = /^\d{4}\/\d{2}\/\d{2}$/;
+    if (!birthdayRegex.test(birthday)) {
+      errorMessage += '・生年月日は YYYY/MM/DD 形式で入力してください（例：1992/01/23）\n';
+    } else {
+      // 日付の妥当性チェック
+      const parts = birthday.split('/');
+      const year = parseInt(parts[0]);
+      const month = parseInt(parts[1]);
+      const day = parseInt(parts[2]);
+      
+      if (year < 1900 || year > new Date().getFullYear()) {
+        errorMessage += '・生年月日の年が正しくありません\n';
+      }
+      if (month < 1 || month > 12) {
+        errorMessage += '・生年月日の月が正しくありません\n';
+      }
+      if (day < 1 || day > 31) {
+        errorMessage += '・生年月日の日が正しくありません\n';
+      }
+    }
+  }
+  
+  // メールチェック
+  if (!email) {
+    errorMessage += '・メールアドレスを入力してください\n';
+  } else {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      errorMessage += '・正しいメールアドレスを入力してください\n';
+    }
+  }
+  
+  // 電話番号チェック
+  if (!tel) {
+    errorMessage += '・電話番号を入力してください\n';
+  } else {
+    const telRegex = /^\d{3}-\d{4}-\d{4}$/;
+    if (!telRegex.test(tel)) {
+      errorMessage += '・電話番号は 090-1234-5678 の形式で入力してください\n';
+    }
+  }
+  
+  // 今いる場所チェック
+  if (!location) {
+    errorMessage += '・今いる場所を選択してください\n';
+  }
+  
+  // 個人情報同意チェック
+  if (!privacy) {
+    errorMessage += '・個人情報保護方針に同意してください\n';
+  }
+  
+  if (errorMessage) {
+    alert('以下の項目を確認してください：\n\n' + errorMessage);
+    return false;
+  }
+  
+  // すべてのチェックが通った場合、フォームを送信
+  alert('送信いたします。ありがとうございます！');
+  
+  // フォームデータをサーバーに送信
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('gender', gender.value);
+  formData.append('birthday', birthday);
+  formData.append('email', email);
+  formData.append('tel', tel);
+  formData.append('location', location);
+  formData.append('privacy', privacy ? '同意' : '未同意');
+  formData.append('timestamp', new Date().toLocaleString('ja-JP'));
+  
+  // 送信処理
+  fetch('send-application.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('応募ありがとうございます！\nご入力いただいたメールアドレスに確認メールをお送りしました。\nご確認ください。');
+      document.querySelector('form').reset();
+    } else {
+      alert('送信に失敗しました。\n時間をおいて再度お試しください。');
+    }
+  })
+  .catch(error => {
+    alert('送信に失敗しました。\n時間をおいて再度お試しください。');
+    console.error('Error:', error);
+  });
+}
+</script>
+
 </body>
 </html>
