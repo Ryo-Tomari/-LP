@@ -1,3 +1,52 @@
+/* オーバーレイ */
+.popup-overlay {
+  position: fixed;
+  inset: 0;                    /* top/right/bottom/left: 0 */
+  background: rgba(0, 0, 0, 0.5);
+  display: none;               /* 非表示スタート */
+  z-index: 1000;
+}
+
+/* ポップアップ本体 */
+.exit-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  max-width: 90%;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transform: translate(-50%, -50%);
+  display: none;               /* 非表示スタート */
+  z-index: 1001;
+  text-align: center;
+}
+
+/* 閉じるボタン */
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ボタン例 */
+.exit-popup .btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 0.6em 1.2em;
+  background:coral(86, 255, 80);
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+
 /* ページ全体の背景色を真似するなら */
 body {
   background-color: #f7f4e8;  /* kyoei-job の背景色に合わせる例 */
@@ -131,15 +180,12 @@ body {
   border: none;                      /* 枠線は消すか透明に */
   border-radius: 50px;
   color: #fff;                       /* 文字色は読みやすく白に */
-  font-size: 50px;
+  font-size: 24px;
   text-decoration: none;
   text-align: center;
   
   /* 虹色グラデーション背景 */
-  background: linear-gradient(
-    60deg,
-    red, orange, yellow, lime, aqua, blue, magenta, red
-  );
+  background-color:orange;
   background-size: 800% 800%;
   animation: rainbow-bg 3s linear infinite;
   
@@ -201,7 +247,7 @@ body {
   max-width: 500px;
   margin: 40px auto;
   box-sizing: border-box;
-  background-color: #fff;   /* ここでカード全体を白に */
+
   border-radius: 12px;
   overflow: hidden;         /* はみ出しを隠す */
 }
@@ -210,8 +256,6 @@ body {
 .support-card .card-header {
   width: 100%;
   box-sizing: border-box;
-  background-color: #ff5722;
-  color: #fff;
   text-align: center;
   padding: 12px 16px;
 }
@@ -236,10 +280,10 @@ body {
 .support-card .card-footnote {
   margin: 0;
   padding: 12px 16px;
-  background-color: #fff;
+  background-color: #FF6633;
+  color: #fff;
   text-align: center;
-  font-size: 0.8rem;
-  color: #777;
+  font-size: 1.5rem;
 }
 /* リストをインラインブロック化して中央に */
 .card-list {
@@ -261,43 +305,1085 @@ body {
   text-align: center;
   color: #FF6633;
 }
-/* カルーセル本体 */
-.carousel {
+/* 求人カルーセル本体 */
+.job-carousel {
   position: relative;
-  width: 500px;    /* お好みで調整 */
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 40px;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    display: block;    /* ブロック要素に変換 */
-  margin: 0 auto;    /* 上下マージン0、左右自動で中央 */
 }
 
-/* スライド群はそのまま flex */
-.slides {
+.job-slides {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.job-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.job-slide:first-child {
+  opacity: 1;
+}
+
+.job-card {
   display: flex;
-  animation: scroll-slow 30s linear infinite;
-  /* 自動スクロール用アニメはそのまま */
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* aタグをフレックスアイテム化＆幅50% */
-.slides .slide-link {
-  flex-shrink: 0;     /* 縮まないように */
-  width: 50%;         /* 2枚ずつ表示したいなら50% */
-  display: block;     /* ブロック化して幅を効かせる */
+.job-image {
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background-color: #f5f5f5;
 }
 
-/* 画像は親幅にフィット */
-.slides .slide-link img {
+.job-content {
+  width: 50%;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.job-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 4px;
+  line-height: 1.1;
+}
+
+.job-details {
+  flex: 1;
+}
+
+.job-details p {
+  margin: 2px 0;
+  font-size: 0.7rem;
+  color: #555;
+  line-height: 1.1;
+}
+
+.job-location {
+  font-weight: bold;
+  color: #007ace !important;
+}
+
+.job-salary {
+  font-weight: bold;
+  color: #e65100 !important;
+  font-size: 1.1rem !important;
+}
+
+.job-apply-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #007ace, #0056b3);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+  margin-top: 4px;
+}
+
+.job-apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 122, 206, 0.3);
+}
+
+/* ナビゲーションボタン */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* インジケーター */
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.indicator.active {
+  background: #007ace;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .job-carousel {
+    max-width: 95%;
+  }
+  
+  .job-card {
+    flex-direction: column;
+  }
+  
+  .job-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+  }
+  
+  .job-content {
+    width: 100%;
+    padding: 12px;
+  }
+  
+  .job-title {
+    font-size: 1.1rem;
+  }
+  
+  .job-details p {
+    font-size: 0.85rem;
+  }
+  
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .job-carousel {
+    max-width: 98%;
+  }
+  
+  .job-content {
+    padding: 10px;
+  }
+  
+  .job-title {
+    font-size: 1rem;
+  }
+  
+  .job-details p {
+    font-size: 0.8rem;
+  }
+  
+  .job-apply-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+.job-features__title {
+  text-align: center;
+  /* 必要なら上下の余白を整える */
+  margin: 0 0 40px;
+}
+
+/* ──────────── レスポンシブグリッドレイアウト ──────────── */
+.job-features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 32px;    /* 行間（縦）は今までどおり */
+  column-gap: 16px;  /* 列間（横）を16pxに調整 */
+  /* あとはそのまま */
+  justify-items: center;                 /* 各セルを中央寄せ */
+  align-items: start;
+  max-width: 610px;                      /* 好きな最大幅 */
+  margin: 0 auto;                        /* 中央寄せ */
+  padding: 0 16px;                       /* サイド余白 */
+}
+
+/* ──────────── 真円アイテムのスタイル ──────────── */
+.job-features__item {
+  background: #fff;      /* 円の背景色 */
+  width: 180px;          /* 円の直径を少し小さく */
+  height: 180px;
+  border-radius: 50%;    /* 完全な円形に */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;         /* 内側余白 */
+  box-sizing: border-box;
+}
+
+/* 見出し */
+.job-features__item h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: #007ace;
+}
+
+/* アイコン画像 */
+.job-features__item img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+/* 説明文 */
+.job-features__item p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: #333;
+}
+
+.faq {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.faq__title {
+  text-align: center;
+  font-size: 2.0rem;
+  margin-bottom: 24px;
+  color:#FF6633;
+}
+
+/* details 全体のスタイル */
+.faq__item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+/* summary（質問）部分 */
+.faq__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+}
+
+/* デフォルトのマーカーを消す */
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+/* プラス／マイナスアイコン */
+.faq__question::after {
+  content: '+';
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+/* open 時はマイナスに */
+.faq__item[open] .faq__question::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+/* 回答部分 */
+.faq__answer {
+  padding: 0 16px 16px;
+  line-height: 1.6;
+  color: #333;
+  /* optional: なめらかに開閉したいなら以下を有効に */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* details が open のときのみ展開 */
+.faq__item[open] .faq__answer {
+  max-height: 200px; /* 内容量に合わせて大きめに */
+}
+
+/* ──────────────────────
+   応募フォーム：元サイト風フラットデザイン
+────────────────────── */
+.apply-form {
+  max-width: 480px;
+  margin: 0 auto 40px;
+  padding: 24px 16px;
+  background: #fff;
+  /* 影／丸角を外す */
+  box-shadow: none;
+  border-radius: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+}
+
+/* タイトル・サブタイトル */
+.apply-form__title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #e65100;   /* オレンジ */
+  text-align: center;
+  margin-bottom: 8px;
+}
+.apply-form__subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* 各入力グループ */
+.apply-form__group {
+  margin-bottom: 20px;
+}
+.apply-form__group label,
+.apply-form__group span {
   display: block;
-  width: 100%;        /* 親(.slide-link)幅いっぱい */
-  height: auto;       /* アスペクト比維持 */
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
 }
 
-@keyframes scroll-slow {
-  0% {
-    transform: translateX(0);
+/* テキスト／Email／Tel／Select をボーダーボトムのみ */
+.apply-form__group input[type="text"],
+.apply-form__group input[type="email"],
+.apply-form__group input[type="tel"],
+.apply-form__group select {
+  width: 100%;
+  padding: 8px 0;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  background: transparent;
+  font-size: 1rem;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+/* フォーカス時のボトムラインだけオレンジに */
+.apply-form__group input:focus,
+.apply-form__group select:focus {
+  outline: none;
+  border-bottom-color: #e65100;
+}
+
+/* ラジオボタンラベル */
+.apply-form__group--radio label {
+  display: inline-block;
+  margin-right: 16px;
+  font-weight: normal;
+  color: #444;
+}
+
+/* チェックボックス */
+.apply-form__group--checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.apply-form__group--checkbox input {
+  margin-right: 8px;
+  accent-color: #e65100;
+}
+.apply-form__group--checkbox a {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: #e65100;
+  text-decoration: underline;
+}
+
+/* 送信ボタンをフル幅・フラットオレンジに */
+.apply-form__group--submit .btn {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #e65100;
+  border: none;
+  border-radius: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.apply-form__group--submit .btn:hover {
+  background: #bf360c;
+}
+
+.trouble-img{
+  width:100%;
+  max-width:700px;
+  display:block;
+  margin:0 auto;
+}
+
+.trouble-box{
+  position: relative;
+  width: 100%;
+  max-width: 600px;         /* 画像幅に合わせて調整 */
+  margin: 0 auto;
+}
+.trouble-img{
+  width: 100%;
+  display: block;
+}
+
+/* 吹き出しテキスト共通 */
+.bubble{
+  position: absolute;
+  width: 35%;               /* 画像に合わせて％指定 */
+  font-size: 13px;
+  line-height: 1.3;
+  color: #333;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 8px 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 左右の位置＆高さは画像を見ながら微調整 */
+.bubble-left-up{
+  top: 20%;   /* 画像高さに対する割合 */
+  left: 10%;
+}
+.bubble-left-down{
+  top: 60%;   /* 画像高さに対する割合 */
+  left: 10%;
+}
+.bubble-right-up{
+  top: 20%;
+  right: 10%;
+}
+.bubble-right-down{
+  top: 60%;
+  right: 10%;
+}
+
+/* タブレット対応 */
+@media (max-width: 768px) {
+  .bubble{ 
+    font-size: 12px; 
+    width: 38%;
+    padding: 6px 4px;
   }
-  100% {
-    transform: translateX(-50%);
+  .bubble-left-up{ 
+    top: 18%; 
+    left: 8%; 
+  }
+  .bubble-left-down{ 
+    top: 58%; 
+    left: 8%; 
+  }
+  .bubble-right-up{ 
+    top: 18%; 
+    right: 8%; 
+  }
+  .bubble-right-down{ 
+    top: 58%; 
+    right: 8%; 
   }
 }
+
+/* スマホ対応 */
+@media (max-width: 480px){
+  .bubble{ 
+    font-size: 11px; 
+    width: 42%;
+    padding: 5px 3px;
+  }
+  .bubble-left-up{ 
+    top: 15%; 
+    left: 6%; 
+  }
+  .bubble-left-down{ 
+    top: 55%; 
+    left: 6%; 
+  }
+  .bubble-right-up{ 
+    top: 15%; 
+    right: 6%; 
+  }
+  .bubble-right-down{ 
+    top: 55%; 
+    right: 6%; 
+  }
+}
+
+/* ————————————————
+   レイアウト用ラッパー
+   ———————————————— */
+.wrap-form {
+  width: 100%;
+  max-width: 100%;
+}
+.wrap-form iframe {
+  width: 100%;
+  border: none;
+}
+
+/* ————————————————
+   Contact Form 7 用カスタム CSS
+   ———————————————— */
+
+/* フォーム全体 */
+.form-container {
+  max-width: 700px; /* 横幅を広げる：600pxから700pxに変更 */
+  margin: 0 auto;
+ padding: 20px 20px 10px; /* 下部のパディングを20pxから10pxに減らす */
+  background-color: white; /* フォームエリアの背景を白色に変更 */
+
+}
+
+/* 最初の行の上に余白を追加 */
+.bl_inquiry_list:first-of-type {
+  margin-top: 15px;
+}
+
+/* 各行（dt + dd） */
+.bl_inquiry_list {
+  margin: 0 0 6px;       /* 行間を約1/3に */
+  padding-bottom: 5px;   /* 下パディングを約1/3に */
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;   /* 垂直方向中央揃え */
+  border-bottom: 1px solid #eee;
+}
+
+/* 最後の行の下に余白を追加 */
+.bl_inquiry_checkbox {
+  margin-bottom: 15px;
+}
+
+/* ラベル側を固定幅30%、文字を小さく */
+.bl_inquiry_list dt {
+  flex: 0 0 35%;
+  width: 35%;
+  display: flex;
+  align-items: center;
+  gap: 4px;              /* ラベルと必須マークの隙間 */
+  white-space: nowrap;   /* 折り返し禁止 */
+  font-weight: bold;
+  font-size: 14px;       /* 小さめフォント */
+  margin: 0;
+}
+
+/* 必須マークを左側に、テキストも小さく */
+.bl_inquiry_list dt.__req::before {
+  content: "必須";
+  background-color: #e74c3c;
+  color: white;
+  font-size: 0.6em;      /* 小さめ */
+  padding: 2px 4px;      /* 幅を狭く */
+  border-radius: 3px;
+  margin: 0;             /* gapで隙間を取る */
+}
+/* ::after は無効化 */
+.bl_inquiry_list dt.__req::after {
+  content: none;
+}
+
+/* 入力欄側を残り70%、少し狭める */
+.bl_inquiry_list dd {
+  flex: 0 0 65%;
+  width: 65%;
+  margin: 0;
+}
+
+/* テキスト／メール／電話／セレクト */
+.bl_inquiry_list input[type="text"],
+.bl_inquiry_list input[type="email"],
+.bl_inquiry_list input[type="tel"],
+.bl_inquiry_list select {
+  width: 100%;
+  padding: 4px;          /* 上下内側余白をキープ */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* ラジオボタン */
+.wpcf7-radio {
+  display: flex;
+}
+.wpcf7-radio .wpcf7-list-item {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px;
+}
+.wpcf7-radio .wpcf7-list-item-label {
+  margin-left: 5px;
+}
+
+/* チェックボックス */
+.bl_inquiry_checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;    /* 下の余白を増やす */
+}
+.bl_inquiry_checkbox .wpcf7-list-item {
+  margin-left: 0;
+}
+.bl_inquiry_checkbox span.wpcf7-list-item-label {
+  display: none;
+}
+.bl_inquiry_checkbox span a {
+  margin-left: 5px;
+}
+
+/* 送信ボタン */
+.bl_inquiry_submit {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  transition: background-color 0.3s;
+ margin-bottom: 5px;
+}
+.bl_inquiry_submit:hover {
+  background-color: #2980b9;
+}
+
+/* ————————————————
+   生年月日の横並び用スタイル
+   ———————————————— */
+/* 改行タグを消す */
+.col02 br {
+  display: none;
+}
+/* <p> をフレックスコンテナにして上下中央揃え */
+.col02 > p {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
+}
+/* span を等分配置 */
+.col02 > p > span {
+  flex: 1;
+  min-width: 0;
+}
+/* select は親幅いっぱいに */
+.col02 > p > span > select {
+  width: 100%;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+/* ————————————————
+   エラーメッセージのカスタマイズ
+   ———————————————— */
+.wpcf7-not-valid-tip {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.wpcf7-response-output {
+  border: 2px solid #e74c3c;
+  padding: 10px;
+  margin: 20px 0;
+  color: #333;
+  font-size: 14px;
+  background-color: #f8d7da;
+  border-radius: 4px;
+}
+.wpcf7-validation-errors,
+.wpcf7-acceptance-missing {
+  border-color: #e74c3c;
+  background-color: #f8d7da;
+}
+.wpcf7-mail-sent-ok {
+  border-color: #2ecc71;
+  background-color: #d4edda;
+}
+
+/* ————————————————
+   レスポンシブ対応
+   ———————————————— */
+@media (max-width: 768px) {
+  .bl_inquiry_list {
+    margin-bottom: 6px;
+    padding-bottom: 5px;
+  }
+  .col02 > p {
+    gap: 6px;
+  }
+  .col02 > p > span > select {
+    padding: 4px;
+  }
+}
+
+/* 全体ラッパー */
+.form-card {
+  max-width: 480px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* ヘッダー部分 */
+.form-header {
+  background: linear-gradient(to bottom, #7d7d7d, #3e3e3e);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.form-header h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 5px;
+}
+
+.form-header p {
+  font-size: 13px;
+  margin: 0;
+}
+
+/* 本体フォーム */
+.form-body {
+  padding: 20px 20px 30px;
+}
+
+/* 各項目 */
+.form-group {
+  margin-bottom: 18px;
+}
+
+/* ラベル（赤） */
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #e60033;
+  margin-bottom: 6px;
+}
+
+/* ラジオボタン */
+.form-group input[type="radio"] {
+  margin-right: 4px;
+  margin-left: 10px;
+}
+
+/* 入力欄/セレクトボックス */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* チェックボックス */
+.form-group.checkbox {
+  font-size: 13px;
+  color: #333;
+}
+
+.form-group.checkbox input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* 個人情報保護リンク */
+.form-group.checkbox a {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* 送信ボタン */
+form {
+  margin-top: 0; /* ← 0にする */
+  padding-top: 0;
+}
+
+.form-group.submit {
+  margin-top: 20px;
+}
+
+.form-group.submit button {
+  width: 100%;
+  background: #0066ff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.form-group.submit button:hover {
+  background: #004fcc;
+}
+/* ラジオボタン（性別）を横並び */
+.form-group.gender label {
+  display: inline-block;
+  margin-right: 15px;
+  font-weight: normal;
+}
+
+/* 生年月日を横並びで3分割 */
+.form-group.birthday {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.form-group.birthday select {
+  width: 100px; /* ←ここで横幅をしっかり確保 */
+}
+
+
+
+/* ──────────── 包括的なレスポンシブ対応 ──────────── */
+
+/* タブレット対応 */
+@media (max-width: 768px) {
+  .btn {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  
+  .job-features__grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 12px;
+  }
+  
+  .job-features__item {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .faq__title {
+    font-size: 1.6rem;
+  }
+  
+  .form-card {
+    max-width: 90%;
+    margin: 20px auto;
+  }
+}
+
+/* スマホ対応 */
+@media (max-width: 480px) {
+  .btn {
+    font-size: 18px;
+    padding: 8px 16px;
+    margin: 15px auto;
+  }
+  
+  .job-features__grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    column-gap: 0;
+  }
+  
+  .job-features__item {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .job-features__item h3 {
+    font-size: 0.9rem;
+  }
+  
+  .job-features__item img {
+    width: 50px;
+  }
+  
+  .job-features__item p {
+    font-size: 0.8rem;
+  }
+  
+  .faq__title {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+  
+  .faq__question {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .faq__answer {
+    padding: 0 12px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .form-card {
+    max-width: 95%;
+    margin: 15px auto;
+  }
+  
+  .form-header h2 {
+    font-size: 16px;
+  }
+  
+  .form-header p {
+    font-size: 12px;
+  }
+  
+  .form-body {
+    padding: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 13px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group select {
+    padding: 8px;
+    font-size: 13px;
+  }
+  
+  .form-group.submit button {
+    font-size: 15px;
+    padding: 10px;
+  }
+  
+  .form-group.birthday {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .form-group.birthday select {
+    width: 100%;
+  }
+  
+  .support-card {
+    max-width: 95%;
+    margin: 20px auto;
+  }
+  
+  .support-card .card-header {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .support-card .card-footnote {
+    font-size: 1.2rem;
+    padding: 10px 12px;
+  }
+  
+  .recommend {
+    font-size: 1.2rem;
+  }
+  
+  .carousel {
+    max-width: 95%;
+  }
+  
+  .incoming-left-wrapper {
+    top: 200px;
+    left: 50px;
+    width: 200px;
+    height: 100px;
+  }
+  
+  .incoming {
+    top: 50px;
+    width: 200px;
+  }
+}
+
+/* 超小型スマホ対応 */
+@media (max-width: 360px) {
+  .btn {
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+  
+  .job-features__item {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .job-features__item h3 {
+    font-size: 0.8rem;
+  }
+  
+  .job-features__item img {
+    width: 40px;
+  }
+  
+  .form-card {
+    max-width: 98%;
+    margin: 10px auto;
+  }
+  
+  .form-body {
+    padding: 10px;
+  }
+}
+
+
