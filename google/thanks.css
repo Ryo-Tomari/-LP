@@ -1,0 +1,157 @@
+/* ---------- Reset / Base ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+}
+
+/* ---------- Layout Containers ---------- */
+.container, .kyoei-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+/* ---------- Header ---------- */
+.header, .kyoei-header {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.header::before, .kyoei-header::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="75" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+  z-index: 0;
+}
+
+.check-mark, .kyoei-check-mark {
+  width: 100px; height: 100px; background: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px; position: relative; z-index: 1;
+  animation: checkPop 0.6s ease-out; /* 統一 */
+}
+.check-mark::after, .kyoei-check-mark::after {
+  content: '✓';
+  font-size: 50px;
+  color: #ff6b35;
+  font-weight: bold;
+}
+
+.header h1, .kyoei-header h1 {
+  font-size: 32px; font-weight: bold; margin-bottom: 10px; position: relative; z-index: 1;
+}
+.header .subtitle,
+.kyoei-header .kyoei-subtitle {
+  font-size: 18px; position: relative; z-index: 1; opacity: 0.95;
+}
+
+/* ---------- Main ---------- */
+.main-content, .kyoei-main-content { padding: 40px 20px; }
+
+.thanks-message, .kyoei-thanks-message { text-align: center; margin-bottom: 40px; }
+.thanks-message h2, .kyoei-thanks-message h2 {
+  font-size: 28px; color: #333; margin-bottom: 20px; font-weight: bold;
+}
+.thanks-message p, .kyoei-thanks-message p {
+  font-size: 16px; color: #666; margin-bottom: 15px; line-height: 1.8;
+}
+
+/* ---------- Orange Box ---------- */
+.orange-box, .kyoei-orange-box {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: #fff; padding: 25px; border-radius: 12px; margin: 30px 0; text-align: center;
+  position: relative; overflow: hidden;
+}
+.orange-box::before, .kyoei-orange-box::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.2)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.2)"/><circle cx="80" cy="20" r="0.5" fill="rgba(255,255,255,0.2)"/><circle cx="20" cy="80" r="0.5" fill="rgba(255,255,255,0.2)"/></svg>');
+  z-index: 0;
+}
+.orange-box h3, .kyoei-orange-box h3,
+.orange-box p, .kyoei-orange-box p { position: relative; z-index: 1; }
+.orange-box h3, .kyoei-orange-box h3 { font-size: 20px; margin-bottom: 15px; }
+.orange-box p, .kyoei-orange-box p { font-size: 15px; }
+
+/* ---------- LINE Box ---------- */
+.line-box, .kyoei-line-section {
+  background: linear-gradient(135deg, #00B900 0%, #00C300 100%);
+  color: #fff; padding: 25px; border-radius: 12px; margin: 30px 0; text-align: center;
+  position: relative; overflow: hidden;
+}
+.line-box::before, .kyoei-line-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.2)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.2)"/><circle cx="80" cy="20" r="0.5" fill="rgba(255,255,255,0.2)"/><circle cx="20" cy="80" r="0.5" fill="rgba(255,255,255,0.2)"/></svg>');
+  z-index: 0;
+}
+.line-box h3, .kyoei-line-section h3,
+.line-box p, .kyoei-line-section p { position: relative; z-index: 1; }
+.line-box h3, .kyoei-line-section h3 { font-size: 20px; margin-bottom: 15px; }
+.line-box p, .kyoei-line-section p { font-size: 15px; margin-bottom: 20px; }
+
+.line-button, .kyoei-line-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #fff; color: #00B900;
+  padding: 15px 30px; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold;
+  position: relative; z-index: 1; transition: all 0.3s ease; gap: 10px;
+}
+.line-button:hover, .kyoei-line-button:hover {
+  background: #f0f0f0; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 179, 0, 0.3); text-decoration: none; color: #00B900;
+}
+.line-icon, .kyoei-line-icon { font-size: 20px; }
+
+/* ---------- Support ---------- */
+.support-section, .kyoei-support-section {
+  background: #f9f9f9; padding: 30px 25px; border-radius: 12px; margin: 40px 0;
+}
+.support-section h3, .kyoei-support-section h3 {
+  font-size: 22px; color: #333; margin-bottom: 20px; text-align: center; font-weight: bold;
+}
+.support-list, .kyoei-support-list { list-style: none; padding: 0; margin: 0; }
+.support-list li, .kyoei-support-list li {
+  padding: 10px 0 10px 25px; position: relative; font-size: 15px; color: #555;
+}
+.support-list li::before, .kyoei-support-list li::before {
+  content: '✓'; position: absolute; left: 0; color: #ff6b35; font-weight: bold; font-size: 16px;
+}
+/* 既存の注記用（HTMLにあれば生かす） */
+.support-note { margin-top: 15px; font-size: 13px; color: #666; }
+
+/* ---------- Footer ---------- */
+.footer, .kyoei-footer {
+  background: #333; color: #fff; text-align: center; padding: 30px 20px;
+}
+.footer p, .kyoei-footer p { margin: 5px 0; font-size: 14px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .header h1, .kyoei-header h1 { font-size: 26px; }
+  .header .subtitle, .kyoei-header .kyoei-subtitle { font-size: 16px; }
+  .main-content, .kyoei-main-content { padding: 30px 15px; }
+  .thanks-message h2, .kyoei-thanks-message h2 { font-size: 24px; }
+  .line-button, .kyoei-line-button { font-size: 16px; padding: 12px 25px; }
+}
+
+/* ---------- Animations ---------- */
+/* 両方のクラスで共通利用 */
+.slide-up, .kyoei-slide-up { animation: slideUp 0.8s ease-out; }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes checkPop {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WRWJVQQ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寮ナビ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRWJVQQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="hero-container">
+        <img src="images/202508＿アニメFV_SP - コピー.webp" alt="スグに住み込み！最短24H・時給1500円・所持金0円でもOK">
+    </div>
+
+    <div class="form-wrapper" id="application-form">
+        <div class="form-card">
+            <div class="form-header">
+                <h2>↓すぐに応募したい方はこちら↓</h2>
+                <p>ご応募後、面接のご案内をいたします！</p>
+            </div>
+
+            <form method="post" class="form-body" id="applicationForm">
+                <div class="form-group">
+                    <label>名前</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="name" id="name" placeholder="例：田中 太郎" required>
+                    </div>
+                </div>
+
+                <div class="form-group gender">
+                    <label>性別</label>
+                    <div class="input-wrapper">
+                        <label><input type="radio" name="gender" value="男性" required> 男性</label>
+                        <label><input type="radio" name="gender" value="女性" required> 女性</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>生年月日</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="birthday" id="birthday-picker" placeholder="例: 1993/01/23" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>メール</label>
+                    <div class="input-wrapper">
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>電話番号</label>
+                    <div class="input-wrapper">
+                        <input type="tel" name="tel" id="tel" placeholder="例：09012345678" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>今いる場所</label>
+                    <div class="input-wrapper">
+                        <select name="location" id="location" required>
+                            <option value="">選んでください</option>
+                            <option>北海道</option>
+                            <option>青森県</option>
+                            <option>岩手県</option>
+                            <option>宮城県</option>
+                            <option>秋田県</option>
+                            <option>山形県</option>
+                            <option>福島県</option>
+                            <option>茨城県</option>
+                            <option>栃木県</option>
+                            <option>群馬県</option>
+                            <option>埼玉県</option>
+                            <option>千葉県</option>
+                            <option>東京都</option>
+                            <option>神奈川県</option>
+                            <option>新潟県</option>
+                            <option>富山県</option>
+                            <option>石川県</option>
+                            <option>福井県</option>
+                            <option>山梨県</option>
+                            <option>長野県</option>
+                            <option>岐阜県</option>
+                            <option>静岡県</option>
+                            <option>愛知県</option>
+                            <option>三重県</option>
+                            <option>滋賀県</option>
+                            <option>京都府</option>
+                            <option>大阪府</option>
+                            <option>兵庫県</option>
+                            <option>奈良県</option>
+                            <option>和歌山県</option>
+                            <option>鳥取県</option>
+                            <option>島根県</option>
+                            <option>岡山県</option>
+                            <option>広島県</option>
+                            <option>山口県</option>
+                            <option>徳島県</option>
+                            <option>香川県</option>
+                            <option>愛媛県</option>
+                            <option>高知県</option>
+                            <option>福岡県</option>
+                            <option>佐賀県</option>
+                            <option>長崎県</option>
+                            <option>熊本県</option>
+                            <option>大分県</option>
+                            <option>宮崎県</option>
+                            <option>鹿児島県</option>
+                            <option>沖縄県</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox">
+                    <div class="input-wrapper">
+                        <label>
+                            <input type="checkbox" name="privacy" id="privacy" required>
+                            <a href="https://kyoeicenter.com/policy/" target="_blank">個人情報保護方針</a>に同意する
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group submit">
+                    <button type="submit">送信</button>
+                </div>
+
+                <input type="hidden" id="gclid_field" name="gclid">
+                <input type="hidden" id="yclid_field" name="yclid">
+                <input type="hidden" id="campaign_field" name="campaign">
+                <input type="hidden" id="adgroup_field" name="adgroup">
+                <input type="hidden" id="keyword_field" name="keyword">
+                <input type="hidden" id="checkbox_field" name="checkbox">
+            </form>
+        </div>
+    </div>
+
+    <section class="points-section">
+        <div class="inner">
+            <ul class="point">
+                <li>
+                    <p><em>お金ピンチ!</em><br> 行動しずらい </p>
+                </li>
+                <li>
+                    <p><em>寮</em>を<em>すぐに</em><br> 出なきゃ… </p>
+                </li>
+                <li>
+                    <p>次の仕事が<br><em>決まってない</em></p>
+                </li>
+            </ul>
+            <p><span class="text-1">そんなあなたも</span><br><span class="text-2">スグに解決!</span></p>
+            <div class="cta"><a href="#application-form" draggable="false">
+                    <picture>
+                        <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.webp">
+                        <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.avif">
+                        <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.webp" height="81" width="302" draggable="false" class="lazyload">
+                    </picture>
+                </a></div>
+        </div>
+    </section>
+
+    <section class="kyoei-section">
+        <div class="inner">
+            <div class="head"> <span class="head-1">お急ぎなら</span><span class="head-2">京栄センター一択!</span> </div>
+            <div class="body">
+                <ul>
+                    <li> <span class="icon">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867077/be920e76-3928-4808-a11f-915bf5e5d660.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867077/be920e76-3928-4808-a11f-915bf5e5d660.avif"><img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867077/be920e76-3928-4808-a11f-915bf5e5d660.webp" height="80" width="80" draggable="false" class="lazyload">
+                            </picture>
+                        </span>
+                        <p><em class="red">所持金0円</em>でもOK</p>
+                    </li>
+                    <li> <span class="icon">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867079/2927a3aa-6c10-4fbc-8f5b-cf8377f472c7.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867079/2927a3aa-6c10-4fbc-8f5b-cf8377f472c7.avif"><img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867079/2927a3aa-6c10-4fbc-8f5b-cf8377f472c7.webp" height="80" width="80" draggable="false" class="lazyload">
+                            </picture>
+                        </span>
+                        <p><em>最短<span class="red">5</span>分</em>以内に面接</p>
+                    </li>
+                    <li> <span class="icon">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867080/692267e9-5889-4b01-a61c-2e7a0f08f00b.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867080/692267e9-5889-4b01-a61c-2e7a0f08f00b.avif"><img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867080/692267e9-5889-4b01-a61c-2e7a0f08f00b.webp" height="80" width="80" draggable="false" class="lazyload">
+                            </picture>
+                        </span>
+                        <p><em>最速<span class="red">24</span></em>時間内に入寮</p>
+                    </li>
+                    <li> <span class="icon">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867083/c8df39f8-181e-4ede-9b26-1d31cfb03cf8.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867083/c8df39f8-181e-4ede-9b26-1d31cfb03cf8.avif"><img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867083/c8df39f8-181e-4ede-9b26-1d31cfb03cf8.webp" height="80" width="80" draggable="false" class="lazyload">
+                            </picture>
+                        </span>
+                        <p><em>寮費<span class="red">無料</span></em>で住み込み</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="job-examples-section">
+        <div class="inner">
+            <p class="text-1">たとえばこんなお仕事がスグに決まる！</p>
+            <ul>
+                <li>
+                    <div class="head"> <span class="tag">例１</span><span class="title">自動車工場｜組立</span> </div>
+                    <div class="body">
+                        <div class="images">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867540/6cceb9ee-a616-4c05-bd67-1e08b8ee451e.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867540/6cceb9ee-a616-4c05-bd67-1e08b8ee451e.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867540/6cceb9ee-a616-4c05-bd67-1e08b8ee451e.webp" height="95" width="119" draggable="false" class="lazyload">
+                            </picture>
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867545/ae33d818-4314-4e5f-8b42-d38d3e4cdf54.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867545/ae33d818-4314-4e5f-8b42-d38d3e4cdf54.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867545/ae33d818-4314-4e5f-8b42-d38d3e4cdf54.webp" height="153" width="191" draggable="false" class="lazyload">
+                            </picture>
+                        </div>
+                        <div class="items">
+                            <p class="list"> ・月収45万円可<br> ・寮費0円<br> ・土日休み<br></p>
+                            <p class="circle"> ボーナス<br>あり </p>
+                            <p class="circle"> 未経験<br>OK </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="head"> <span class="tag">例２</span><span class="title">半導体工場｜検査</span> </div>
+                    <div class="body">
+                        <div class="images">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867731/877319f0-b0b6-4e56-8a10-aebfe03fd373.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867731/877319f0-b0b6-4e56-8a10-aebfe03fd373.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867731/877319f0-b0b6-4e56-8a10-aebfe03fd373.webp" width="119" height="95" draggable="false" class="lazyload">
+                            </picture>
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867733/4be0307d-9a05-46de-b0f5-1e539a3142dd.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867733/4be0307d-9a05-46de-b0f5-1e539a3142dd.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867733/4be0307d-9a05-46de-b0f5-1e539a3142dd.webp" width="119" height="95" draggable="false" class="lazyload">
+                            </picture>
+                        </div>
+                        <div class="items">
+                            <p class="list"> ・月収31万円可<br> ・寮費0円<br> ・手のひらサイズ<br></p>
+                            <p class="circle"> 経験不要 </p>
+                            <p class="circle"> 定着率<br>高め◎ </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="head"> <span class="tag">例３</span><span class="title small">家電工場｜マシンオペレーター</span> </div>
+                    <div class="body">
+                        <div class="images">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867734/8affd0d3-db02-4dd3-a1e6-761ba0628354.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867734/8affd0d3-db02-4dd3-a1e6-761ba0628354.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867734/8affd0d3-db02-4dd3-a1e6-761ba0628354.webp" width="119" height="95" draggable="false" class="lazyload">
+                            </picture>
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867744/aa4d6073-af3c-4c96-8d55-e84f6efa7011.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867744/aa4d6073-af3c-4c96-8d55-e84f6efa7011.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867744/aa4d6073-af3c-4c96-8d55-e84f6efa7011.webp" width="119" height="95" draggable="false" class="lazyload">
+                            </picture>
+                        </div>
+                        <div class="items">
+                            <p class="list"> ・月収32万円可<br> ・前払いOK<br> ・カップルOK<br></p>
+                            <p class="circle"> 男女<br>活躍中 </p>
+                            <p class="circle"> 未経験<br>OK </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="head"> <span class="tag">例４</span><span class="title middle">物流倉庫｜仕分け・梱包</span> </div>
+                    <div class="body">
+                        <div class="images">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867749/62ad5b4a-9826-4748-8d9b-2e8b577bdd08.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867749/62ad5b4a-9826-4748-8d9b-2e8b577bdd08.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867749/62ad5b4a-9826-4748-8d9b-2e8b577bdd08.webp" width="119" height="95" draggable="false" class="lazyload">
+                            </picture>
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867750/0ff17b83-690e-4f50-aac9-c18392aea3bb.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867750/0ff17b83-690e-4f50-aac9-c18392aea3bb.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5867750/0ff17b83-690e-4f50-aac9-c18392aea3bb.webp" width="119" height="95" draggable="false" class="lazyload">
+                            </picture>
+                        </div>
+                        <div class="items">
+                            <p class="list"> ・月収27万円<br> ・残業なし<br> ・友人応募OK<br></p>
+                            <p class="circle"> かんたん<br>軽作業 </p>
+                            <p class="circle"> 幅広い<br>世代活躍 </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <p class="text-2">上記は一例です<br> 全国3000件以上の求人の中から<br> 条件に合うお仕事を見つけましょう♪</p>
+            <div class="cta"><a href="#application-form" draggable="false">
+                    <picture>
+                        <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.webp">
+                        <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.webp" height="81" width="302" draggable="false" class="lazyload">
+                    </picture>
+                </a></div>
+        </div>
+    </section>
+
+    <section class="support-section">
+        <div class="inner">
+            <ul class="point">
+                <li>
+                    <p><em>お金ピンチ!</em><br> 行動しずらい </p>
+                </li>
+                <li>
+                    <p><em>寮</em>を<em>すぐに</em><br> 出なきゃ… </p>
+                </li>
+                <li>
+                    <p>次の仕事が<br><em>決まってない</em></p>
+                </li>
+            </ul>
+            <p class="text-1">＼ピンチでも大丈夫！／<br>まずはご相談ください！</p>
+            <p class="text-2">サポート制度あります</p>
+            <ul class="support">
+                <li>
+                    <div class="head"><i class="icon material-icons">done</i></div>
+                    <div class="body">
+                        <p>面接会場への<br>交通費</em>の支援</p> <span class="image">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868239/763c7829-adf5-44bc-ae50-798cc5e30937.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868239/763c7829-adf5-44bc-ae50-798cc5e30937.avif"><img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868239/763c7829-adf5-44bc-ae50-798cc5e30937.webp" height="452" width="600" draggable="false" class="lazyload">
+                            </picture>
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="head"><i class="icon material-icons">done</i></div>
+                    <div class="body">
+                        <p><em>食料/宿泊場所</em>の支援</p> <span class="image">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868411/0c06ec2c-4c0b-4d52-b75e-786d009f6465.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868411/0c06ec2c-4c0b-4d52-b75e-786d009f6465.avif"><img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868411/0c06ec2c-4c0b-4d52-b75e-786d009f6465.webp" width="70" height="53" draggable="false" class="lazyload">
+                            </picture>
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="head"><i class="icon material-icons">done</i></div>
+                    <div class="body">
+                        <p>ご自身名義の<br>携帯契約</em>の支援</p> <span class="image">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868412/698da091-c7f0-4f92-950c-08b716627bd6.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868412/698da091-c7f0-4f92-950c-08b716627bd6.avif"><img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868412/698da091-c7f0-4f92-950c-08b716627bd6.webp" width="70" height="53" draggable="false" class="lazyload">
+                            </picture>
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="head"><i class="icon material-icons">done</i></div>
+                    <div class="body">
+                        <p>勤務先まで<br>赴任費用</em>の支援</p> <span class="image">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868416/c40ac6ec-33fb-4219-a878-89bdff1343b0.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868416/c40ac6ec-33fb-4219-a878-89bdff1343b0.avif"><img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868416/c40ac6ec-33fb-4219-a878-89bdff1343b0.webp" width="70" height="53" draggable="false" class="lazyload">
+                            </picture>
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="head"><i class="icon material-icons">done</i></div>
+                    <div class="body">
+                        <p><em>引越し・荷物輸送</em>の支援</p> <span class="image">
+                            <picture>
+                                <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868420/a74cc1a2-56a1-4edf-b6ce-4c296cdf02d6.webp">
+                                <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868420/a74cc1a2-56a1-4edf-b6ce-4c296cdf02d6.avif"><img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5868420/a74cc1a2-56a1-4edf-b6ce-4c296cdf02d6.webp" width="70" height="53" draggable="false" class="lazyload">
+                            </picture>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+            <p class="text-3">一部規定・上限があります。<br>詳しくは応募後にご相談ください。</p>
+            <div class="cta"><a href="#application-form" draggable="false">
+                    <picture>
+                        <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.webp">
+                        <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.webp" height="81" width="302" draggable="false" class="lazyload">
+                    </picture>
+                </a></div>
+        </div>
+    </section>
+
+    <section class="reason-section">
+        <p class="text-1">おかげさまで</p>
+        <p class="text-2">採用実績<class="only-sp"><span class="gold">17,743</span>名!</p>
+        <p class="text-3">※2025年8月時点</p>
+        <div class="ribbon">京栄センターが選ばれる理由</div>
+        <div class="inner">
+            <ul class="reason">
+                <li>
+                    <div class="title">
+                        <picture>
+                            <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876040/c4270e1b-b5fc-48a3-a1ed-f5cf19336379.webp">
+                            <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876040/c4270e1b-b5fc-48a3-a1ed-f5cf19336379.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876040/c4270e1b-b5fc-48a3-a1ed-f5cf19336379.webp" height="87" width="501" draggable="false" class="lazyload">
+                        </picture>
+                    </div>
+                    <div class="image">
+                        <picture>
+                            <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876042/468b1a30-4f65-4bc6-a059-d42f037c6395.webp">
+                            <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876042/468b1a30-4f65-4bc6-a059-d42f037c6395.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876042/468b1a30-4f65-4bc6-a059-d42f037c6395.webp" height="168" width="168" draggable="false" class="lazyload">
+                        </picture>
+                    </div>
+                    <div class="text">
+                        <p>「お金がない」「携帯が使えない」<br> でも大丈夫！<br> 就業に必要なものの準備から<br> 金銭的なサポートも行っています。 </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="title">
+                        <picture>
+                            <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876197/abb37a1f-cd18-46d1-b73e-6d6d95094e42.webp">
+                            <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876197/abb37a1f-cd18-46d1-b73e-6d6d95094e42.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876197/abb37a1f-cd18-46d1-b73e-6d6d95094e42.webp" width="370" height="64" draggable="false" class="lazyload">
+                        </picture>
+                    </div>
+                    <div class="image">
+                        <picture>
+                            <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876200/b8252721-046b-4c36-be78-6b0643075856.webp">
+                            <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876200/b8252721-046b-4c36-be78-6b0643075856.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876200/b8252721-046b-4c36-be78-6b0643075856.webp" width="168" height="168" draggable="false" class="lazyload">
+                        </picture>
+                    </div>
+                    <div class="text">
+                        <p>あなたの理想の条件だけではなく<br> WEB非公開の<em>入社日</em><em>募集数</em><em>特典</em>も<br> 含めて、現実的な「採用」という<br> ゴールに最速で向き合います </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="title">
+                        <picture>
+                            <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876201/f9052d08-e116-4fba-83c9-a7e8ab5faf31.webp">
+                            <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876201/f9052d08-e116-4fba-83c9-a7e8ab5faf31.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876201/f9052d08-e116-4fba-83c9-a7e8ab5faf31.webp" width="370" height="64" draggable="false" class="lazyload">
+                        </picture>
+                    </div>
+                    <div class="image">
+                        <picture>
+                            <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876203/0003d5f3-793b-4d64-8e20-16becbfa82a9.webp">
+                            <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876203/0003d5f3-793b-4d64-8e20-16becbfa82a9.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876203/0003d5f3-793b-4d64-8e20-16becbfa82a9.webp" width="168" height="168" draggable="false" class="lazyload">
+                        </picture>
+                    </div>
+                    <div class="text">
+                        <p>同じ工場でも派遣会社によって異なる条件。<br> たくさん問い合わせなくても<br><em>給与や待遇をイッキに比較</em>できます! </p>
+                    </div>
+                </li>
+            </ul>
+            <div class="cta"><a href="#application-form" draggable="false">
+                    <picture>
+                        <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.webp">
+                        <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5866586/307d339b-68a2-4612-8703-a8acd21dc80f.webp" height="81" width="302" draggable="false" class="lazyload">
+                    </picture>
+                </a></div>
+        </div>
+    </section>
+
+    <section class="interview-section">
+        <div class="inner">
+            <div class="ribbon">採用者インタビュー</div>
+            <ul class="interview">
+                <li>
+                    <div class="image">
+                        <picture>
+                            <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876756/05149ea9-f417-4f2f-b865-8ec66a153f8d.webp">
+                            <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876756/05149ea9-f417-4f2f-b865-8ec66a153f8d.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876756/05149ea9-f417-4f2f-b865-8ec66a153f8d.webp" width="155" height="155" draggable="false" class="lazyload">
+                        </picture>
+                    </div>
+                    <div class="text">
+                        <p>退寮日が決まっていたので<br>焦っていましたが<br><em>寝泊まりする場所や食事の支援<br></em>をしてもらい<br> 不自由なく入寮・入社することが<br>できました。<br> 給料も寮も、前職より良くなって<br>最高です！ </p>
+                        <p class="author">（30代男性）</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="image">
+                        <picture>
+                            <source type="image/webp" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876773/d496c5c7-99f1-4a6a-ba6e-48b3f0b08a12.webp">
+                            <source type="image/avif" srcset="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876773/d496c5c7-99f1-4a6a-ba6e-48b3f0b08a12.avif"> <img src="https://file.mysquadbeyond.com/uploads/article_photo/photo/5876773/d496c5c7-99f1-4a6a-ba6e-48b3f0b08a12.webp" width="122" height="122" draggable="false" class="lazyload">
+                        </picture>
+                    </div>
+                    <div class="text">
+                        <p>携帯の契約が切れて<br>しまったのですが、<br> すぐ面接を組んでもらい、内定！<br><em>携帯の契約を支援を受けて</em><br> 無事入社できました！<br>ありがとうございます！ </p>
+                        <p class="author">（20代女性）</p>
+                    </div>
+                </li>
+            </ul>
+            <p class="text-1">「ピンチのとき」も<br> 「良い条件で探したいとき」も<br> 京栄センターにお任せください！</p>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="ribbon">よくある質問</div>
+        <div class="inner">
+            <div class="faq">
+                <p class="label">住み込み寮について</p>
+                <dl>
+                    <dt>いつから寮に入れますか？</dt>
+                    <dd>
+                        <p><em>最短で応募日にそのまま入寮できます。</em></p>
+                        <p>就業先の空き物件がない場合も、宿泊施設で入寮日までの待機が可能です。また食事支援や身の回りのサポートも行っています。</p>
+                    </dd>
+                    <dt>寮はどんな物件ですか？</dt>
+                    <dd>
+                        <p><em>ひとり暮らしに最適なワンルーム寮をご用意しています。</em></p>
+                        <p>一般的なワンルームの物件が基本的な寮です。比較的少ないとされてるカップル寮・家族寮・ペット寮などもご相談ください。</p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="faq">
+                <p class="label">ピンチの対応について</p>
+                <dl>
+                    <dt>今日寮を出なければいけないのですが、大丈夫ですか？</dt>
+                    <dd>
+                        <p><em>大丈夫です！</em></p>
+                        <p>諸規定がありますが、引っ越しサポートやホテル支援も行っていますので一度ご相談ください！</p>
+                    </dd>
+                    <dt>携帯が使えないのですが…</dt>
+                    <dd>
+                        <p><em>LINEやメールで対応可能です。</em></p>
+                        <p>応募後の自動送信メールにご返信ください。携帯の契約に関する支援も行っています。ご応募の上、ご相談おまちしております。</p>
+                    </dd>
+                    <dt> すぐにでもお金が欲しいです</dt>
+                    <dd>
+                        <p><em>最短即日お支払い！前払いや支援あり</em></p>
+                        <p>前払いや入社時に特典がある求人はもちろん、京栄センターでは働く前に必要な生活費支援も行っています。</p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="faq">
+                <p class="label">お仕事について</p>
+                <dl>
+                    <dt>仕事内容を教えて下さい。</dt>
+                    <dd>
+                        <p><em>工場での製造作業が主な職種です。</em></p>
+                        <p>組立・組付け・マシンオペレーター・検品・検査などの作業で、取り扱う製品は手のひらサイズのものから飛行機の部品まで様々です。</p>
+                    </dd>
+                    <dt>どれくらい稼げますか？</dt>
+                    <dd>
+                        <p><em>月収40万円以上の実績多数！</em></p>
+                        <p>エリアや配属によりますが、未経験OKのシンプルな作業で時給は1500円以上が多数。さらに20~80万円程の特典がある求人も多数あり、高収入が可能です。</p>
+                    </dd>
+                    <dt>働きたくない企業があるのですが…</dt>
+                    <dd>
+                        <p><em>何でもご相談ください！</em></p>
+                        <p>「過去〇〇で嫌になった」などご相談いただければ、特定の企業を避けたり他の部署や担当者の紹介も可能なのでご安心ください。</p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="inner">
+            <div class="information">
+                <p class="company">株式会社京栄センター</p>
+                <p class="address">〒450-0002　 愛知県名古屋市中村区名駅4-14-8名駅あさひビル2F</p>
+                <p class="policy"><a href="https://kyoeicenter.com/policy/" draggable="false">個人情報保護方針</a></p>
+            </div>
+            <div class="textbox">
+                <p class="title">京栄センターには住み込みの仕事が3000件以上！</p>
+                <p>住み込みの仕事求人を探すなら京栄センターにお任seください。家なし住所なし携帯なしから寮付きの仕事に住み込みできる工場求人が見つかる！全国の寮付き工場や製造の住み込みの仕事に特化した京栄センターでは住み込みの仕事を見つけられます。(...省略...) </p>
+            </div>
+            <p class="copy">© 2024　Kyoei Center Inc.</p>
+        </div>
+    </footer>
+
+    <div class="background-wrapper">
+        <a href="#application-form" class="cta">今すぐ応募する</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+    <script>
+        // --- ページ読み込み時の初期設定 ---
+        window.addEventListener('DOMContentLoaded', function() {
+            // 広告パラメータ取得・設定
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('gclid_field').value = urlParams.get('gclid') || '';
+            document.getElementById('yclid_field').value = urlParams.get('yclid') || '';
+            document.getElementById('campaign_field').value = urlParams.get('utm_campaign') || '';
+            document.getElementById('adgroup_field').value = urlParams.get('utm_content') || '';
+            document.getElementById('keyword_field').value = urlParams.get('utm_term') || '';
+
+            // ▼▼▼ ここからが修正箇所 ▼▼▼
+            // カレンダーピッカー初期化
+            flatpickr("#birthday-picker", {
+                locale: "ja",
+                dateFormat: "Y-m-d",
+                altInput: true,
+                altFormat: "Y/m/d",
+                maxDate: "today",
+                defaultDate: "2000-01-01" // 初期表示を2000年に設定
+            });
+            // ▲▲▲ ここまでが修正箇所 ▲▲▲
+        });
+
+        // --- 名前の入力制限 ---
+        const nameInput = document.getElementById('name');
+        if (nameInput) {
+            nameInput.addEventListener('input', function(e) {
+                e.target.value = e.target.value.replace(/[０-９a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g, '');
+            });
+        }
+
+        // --- 電話番号の入力制限 ---
+        const telInput = document.getElementById('tel');
+        if (telInput) {
+            telInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/[^0-9]/g, '');
+                if (value.length > 11) {
+                    value = value.slice(0, 11);
+                }
+                e.target.value = value;
+            });
+        }
+
+        // --- フォームの送信処理 ---
+        const applicationForm = document.getElementById('applicationForm');
+        if (applicationForm) {
+            applicationForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                validateAndSubmitForm(event);
+            });
+        }
+
+        // --- フォームの入力チェックと送信関数 ---
+        function validateAndSubmitForm(event) {
+            const formElement = document.getElementById('applicationForm');
+            const formData = new FormData(formElement);
+            
+            const name = formData.get('name').trim();
+            const gender = formData.get('gender');
+            const birthday = formData.get('birthday').trim();
+            const email = formData.get('email').trim();
+            const tel = formData.get('tel').trim();
+            const location = formData.get('location');
+            const privacy = document.getElementById('privacy').checked;
+            
+            let errorMessage = '';
+
+            if (!name) errorMessage += '・名前を入力してください\n';
+            if (!gender) errorMessage += '・性別を選択してください\n';
+            if (!birthday) errorMessage += '・生年月日を選択してください\n';
+            
+            if (!email) {
+                errorMessage += '・メールアドレスを入力してください\n';
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errorMessage += '・正しいメールアドレスを入力してください\n';
+            }
+            
+            if (!tel) {
+                errorMessage += '・電話番号を入力してください\n';
+            } else if (tel.length !== 11) {
+                errorMessage += '・電話番号は必ず11桁で入力してください（ハイフンなし）\n';
+            }
+
+            if (!location) errorMessage += '・今いる場所を選択してください\n';
+            if (!privacy) errorMessage += '・個人情報保護方針に同意してください\n';
+
+            if (errorMessage) {
+                alert('以下の項目を確認してください：\n\n' + errorMessage);
+                return false;
+            }
+
+            // バリデーション成功時に送信
+            fetch('send-application.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.redirect) {
+                    window.location.href = data.redirect;
+                } else {
+                    alert('送信に失敗しました: ' + (data.message || '不明なエラー'));
+                }
+            })
+            .catch(err => {
+                alert('通信エラーが発生しました。');
+                console.error(err);
+            });
+        }
+    </script>
+</body>
+</html>

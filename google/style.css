@@ -1,0 +1,1631 @@
+/* === 全体設定 === */
+/* === スムーズスクロールを有効にする === */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f7f4e8;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+img,
+picture {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    padding: 20px 0;
+}
+
+/* === コンテンツ幅と中央ぞろえ === */
+.inner,
+.hero-container,
+.support-card,
+.job-carousel,
+.form-wrapper,
+footer .inner {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.hero-container {
+    max-width: 1200px;
+    padding: 0;
+}
+
+.inner {
+    max-width: 1000px;
+}
+
+.support-card,
+.job-carousel {
+    max-width: 500px;
+}
+
+.form-wrapper {
+    max-width: 600px;
+}
+
+/* フォームの最大幅を調整 */
+
+
+/* === ヒーローセクション (省略) === */
+
+
+/* === その他のセクション (省略) === */
+.point {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.point li {
+    width: 200px;
+    background-color: #fff;
+    border-radius: 19px;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.point li em {
+    color: rgba(191, 2, 2, 0.83);
+    font-size: 32px;
+    font-style: normal;
+}
+
+.text-1,
+.text-2 {
+    text-align: center;
+    font-weight: 700;
+}
+
+.text-1 {
+    font-size: 24px;
+}
+
+.text-2 {
+    font-size: 60px;
+}
+
+
+/* === ▼▼▼ 応募フォームのスタイル ▼▼▼ === */
+
+.form-card {
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+    background: #3e3e3e;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+.form-header h2 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0 0 5px;
+}
+
+.form-header p {
+    font-size: 0.8em;
+    margin: 0;
+}
+
+.form-body {
+    padding: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    /* ラベルと入力欄を上下中央に揃える */
+    margin-bottom: 12px;
+    /* 項目間の余白を縮める */
+}
+
+.form-group>label {
+    flex-basis: 110px;
+    /* ラベルの幅を固定 */
+    flex-shrink: 0;
+    /* ラベルが縮まないように */
+    font-size: 0.9em;
+    font-weight: bold;
+    padding-right: 10px;
+    /* ラベルと入力欄の間の余白 */
+    box-sizing: border-box;
+}
+
+.form-group .input-wrapper {
+    flex-grow: 1;
+    /* 入力欄が残りの幅をすべて使う */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    /* 入力欄の余白を少し縮める */
+    border: 1px solid #ccc;
+    font-size: 1em;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* 性別欄の横並び設定 */
+.form-group.gender .input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.form-group.gender .input-wrapper label {
+    font-weight: normal;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* チェックボックスと送信ボタンは中央揃え */
+.form-group.checkbox,
+.form-group.submit {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.form-group.checkbox .input-wrapper label {
+    justify-content: center;
+    /* 中央揃え */
+    font-size: 0.9em;
+}
+
+.form-group.checkbox a {
+    color: #007bff;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+.form-group.submit button {
+    width: 100%;
+    background: #e54343;
+    /* ボタンの色を赤に変更 */
+    color: #fff;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* === フッター === */
+footer {
+    background: #4a4a4a;
+    color: #fff;
+    padding: 40px 15px;
+    text-align: center;
+}
+
+footer .textbox {
+    border: 1px dashed #888;
+    padding: 20px;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+footer .copy {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.background-wrapper {
+    display: none;
+    /* 追従ボタンは一旦非表示 */
+}
+
+/* === スマートフォン表示用の微調整 === */
+@media (max-width: 480px) {
+    .form-body {
+        padding: 20px 15px;
+    }
+
+    .form-group>label {
+        flex-basis: 90px;
+        /* スマホではラベル幅を少し狭める */
+        font-size: 0.8em;
+    }
+
+    .form-group.gender .input-wrapper {
+        flex-direction: column;
+        /* 男女の選択肢が狭すぎる場合は縦に */
+        align-items: flex-start;
+    }
+}
+
+/* === 男女の性別欄を常に横並びにするためのCSS === */
+
+.form-group.gender .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    /* 縦並びの指定を解除 */
+    align-items: center;
+}
+
+.form-group.gender .input-wrapper label {
+    font-weight: normal;
+    margin-right: 20px;
+    /* 「男性」と「女性」の間のスペース */
+}
+
+/* === 生年月日入力欄のデザインを他の項目と統一する === */
+.form-group .flatpickr-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #fff;
+    /* 背景色を強制的に白に設定 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    /* フォントを統一 */
+}
+
+/* === 応募フォームの余白をコンパクトにする調整 === */
+
+/* フォーム内全体の余白を少し狭くします */
+.form-body {
+    padding: 20px;
+}
+
+/* 各項目（名前、性別など）の間の余白を狭くします */
+.form-group {
+    margin-bottom: 10px;
+}
+
+/* 入力欄の上下の余白を少し狭くします */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group .flatpickr-input {
+    padding: 6px 8px;
+}
+
+/* チェックボックスと送信ボタンの上の余白を調整 */
+.form-group.checkbox,
+.form-group.submit {
+    padding-top: 5px;
+}
+
+
+/* === ポイントセクション専用のスタイル === */
+
+.points-section {
+    width: 100%;
+    background: #f3f2e8ff;
+    box-sizing: border-box;
+}
+
+.points-section .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 0;
+    /* 上下の余白を少し調整 */
+    box-sizing: border-box;
+}
+
+.points-section .point {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0 auto;
+}
+
+.points-section .point li {
+    width: 200px;
+    max-width: calc(100% - 10px);
+    height: 108px;
+    background-color: #ffffff;
+    border-radius: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.points-section .point li p {
+    color: #000000;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    text-align: center;
+}
+
+.points-section .point li em {
+    color: rgba(191, 2, 2, 0.83);
+    font-size: 32px;
+}
+
+.points-section .text-1 {
+    font-size: 36px;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    font-weight: 700;
+    text-align: center;
+    color: #4a4a4a;
+}
+
+.points-section .text-2 {
+    font-size: 72px;
+    line-height: 1;
+    font-style: italic;
+    font-weight: 900;
+    text-shadow: 3px 3px 0px rgb(255, 255, 255);
+    text-align: center;
+    color: #4a4a4a;
+}
+
+.points-section .cta {
+    margin: 10px 0px 5px 0px;
+    text-align: center;
+}
+
+.points-section .cta a {
+    display: inline-block;
+    height: 81px;
+    margin: 10px 0px 5px 0px;
+    width: 302px;
+    max-width: 100%;
+}
+
+.points-section .cta img {
+    width: 100%;
+}
+
+@media screen and (max-width: 540px) {
+    .points-section .point li {
+        height: 70px;
+        margin: 0px 3px 0px 3px;
+        width: 120px;
+    }
+
+    .points-section .point li p {
+        font-size: 16px;
+    }
+
+    .points-section .point li em {
+        font-size: 20px;
+        letter-spacing: -0.1em;
+    }
+
+    .points-section .text-1 {
+        font-size: 24px;
+    }
+
+    .points-section .text-2 {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .points-section .point li {
+        border-radius: 8px;
+        height: 55px;
+        width: 89px;
+        max-width: calc(100% - 6px);
+    }
+
+    .points-section .point li p {
+        font-size: 13px;
+        letter-spacing: -0.1em;
+    }
+
+    .points-section .point li em {
+        font-size: 13px;
+        letter-spacing: -0.1em;
+    }
+}
+
+/* === 上部3項目のスマホ表示調整 === */
+@media screen and (max-width: 767px) {
+
+    /* ボックスの横幅を画面いっぱいに広げます */
+    .points-section .point li {
+        width: 100%;
+    }
+
+    /* 赤文字が改行されないようにします */
+    .points-section .point li em {
+        white-space: nowrap;
+    }
+
+}
+
+/* === 上部3項目のスマホ表示を強制的に横並びにする === */
+@media screen and (max-width: 767px) {
+
+    /* 横並びを強制し、縦並びの指定を解除 */
+    .points-section .point {
+        flex-direction: row;
+        align-items: stretch;
+        /* 高さを揃える */
+        gap: 8px;
+        /* 項目間のスペース */
+    }
+
+    /* 各ボックスが幅を分け合うように設定 */
+    .points-section .point li {
+        flex: 1;
+        /* 横幅を均等に分ける */
+        width: 33%;
+        /* 念のため幅を指定 */
+        max-width: 33%;
+        padding: 10px 5px;
+        /* 内側の余白を調整 */
+    }
+
+    /* ボックス内の文字サイズを小さくして収める */
+    .points-section .point li p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    /* 赤文字のサイズも調整 */
+    .points-section .point li em {
+        font-size: 14px;
+        white-space: normal;
+        /* 折り返しを許可 */
+    }
+}
+
+/* === 上部3項目のデザイン調整（長方形・文字サイズアップ） === */
+@media screen and (max-width: 767px) {
+
+    /* 項目を横に並べ、画面幅に応じて折り返すように設定 */
+    .points-section .point {
+        flex-direction: row;
+        /* 横並び */
+        flex-wrap: wrap;
+        /* 折り返しを許可 */
+        justify-content: center;
+        gap: 8px;
+    }
+
+    /* 各ボックスのスタイル */
+    .points-section .point li {
+        flex-grow: 1;
+        /* できるだけスペースを分け合う */
+        flex-basis: 150px;
+        /* 最低限の幅を確保 */
+        width: auto;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        /* 角を丸くする */
+        padding: 12px 15px;
+        /* 内側の余白 */
+        background-color: #fefefe;
+    }
+
+    /* 文字サイズを大きくする */
+    .points-section .point li p {
+        font-size: 15px;
+        line-height: 1.4;
+        font-style: normal;
+    }
+
+    /* 赤文字のスタイル */
+    .points-section .point li em {
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+    }
+}
+
+/* === 上部3項目のスマホ表示を【強制的に横一列】にする調整 === */
+@media screen and (max-width: 767px) {
+
+    /* 横並びを強制し、折り返しを禁止 */
+    .points-section .point {
+        flex-wrap: nowrap;
+        gap: 5px;
+        /* 項目間のスペースをさらに狭める */
+    }
+
+    /* 各ボックスの余白を最小限に */
+    .points-section .point li {
+        padding: 8px 5px;
+    }
+
+    /* 文字が収まるようにサイズを小さく調整 */
+    .points-section .point li p {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    /* 赤文字のサイズも調整 */
+    .points-section .point li em {
+        font-size: 13px;
+    }
+}
+
+/* 「スグに解決！」のテキストを中央ぞろえにする */
+.points-section .text-1,
+.points-section .text-2 {
+    display: block;
+    text-align: center;
+}
+
+/* === 京栄センター一択セクション専用スタイル === */
+
+.kyoei-section {
+    width: 100%;
+    background: #f3f2e8ff;
+    box-sizing: border-box;
+    padding: 30px 0;
+}
+
+.kyoei-section .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.kyoei-section .head {
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border-radius: 32px 32px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 20px 5px 20px;
+    width: 470px;
+    max-width: calc(100% - 30px);
+    box-sizing: border-box;
+}
+
+.kyoei-section .head-1 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    line-height: 1;
+}
+
+.kyoei-section .head-2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.kyoei-section .body {
+    background: #ffffff;
+    border-radius: 0px 0px 32px 32px;
+    width: 470px;
+    max-width: calc(100% - 30px);
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.kyoei-section ul {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* リスト項目を均等に配置 */
+    justify-content: center;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    gap: 15px;
+    /* 項目間のスペース */
+}
+
+.kyoei-section li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.kyoei-section li .icon {
+    flex-shrink: 0;
+    height: 80px;
+    margin-right: 20px;
+    width: 80px;
+}
+
+.kyoei-section li .icon img {
+    width: 100%;
+}
+
+.kyoei-section li p {
+    color: #000000;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.kyoei-section li p em {
+    font-size: 1.5em;
+    /* 36px相当 */
+    font-style: normal;
+    font-weight: 700;
+}
+
+.kyoei-section li p .red {
+    color: rgba(191, 2, 2, 0.83);
+}
+
+
+@media screen and (max-width: 540px) {
+
+    .kyoei-section .head,
+    .kyoei-section .body {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .kyoei-section .head-1 {
+        font-size: 15px;
+    }
+
+    .kyoei-section .head-2 {
+        font-size: 28px;
+    }
+
+    .kyoei-section li .icon {
+        height: 50px;
+        width: 50px;
+        margin-right: 15px;
+    }
+
+    .kyoei-section li p {
+        font-size: 18px;
+        /* スマホでの文字サイズ調整 */
+        white-space: normal;
+        /* 折り返しを許可 */
+    }
+
+    .kyoei-section li p em {
+        font-size: 1.5em;
+        /* 27px相当 */
+    }
+}
+
+/* === 仕事例セクション専用のスタイル === */
+
+.job-examples-section {
+    width: 100%;
+    background: #f3f2e8ff;
+    box-sizing: border-box;
+    padding: 30px 0;
+}
+
+.job-examples-section .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.job-examples-section .text-1 {
+    color: #4a4a4a;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.job-examples-section .text-2 {
+    color: #4a4a4a;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.job-examples-section ul {
+    width: 100%;
+    max-width: 722px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.job-examples-section li {
+    background: #FFFFFF;
+    width: 350px;
+    /* 横幅を少し調整 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-examples-section li .head {
+    width: 100%;
+    background: #0056b3;
+    /* 色を変更 */
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.job-examples-section .tag {
+    background: #747474;
+    color: #ffffff;
+    font-size: 12px;
+    margin-right: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.job-examples-section .title {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.job-examples-section .title.small {
+    font-size: 16px;
+}
+
+.job-examples-section .title.middle {
+    font-size: 18px;
+}
+
+
+.job-examples-section li .body {
+    padding: 15px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.job-examples-section .images {
+    display: flex;
+    gap: 10px;
+    margin: 0 auto 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.job-examples-section .images img {
+    width: 45%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.job-examples-section .items {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.job-examples-section .items p.list {
+    color: #111111;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.job-examples-section .items p.circle {
+    background: #f0ad4e;
+    /* 色を変更 */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+    font-size: 14px;
+    line-height: 1.3;
+    text-align: center;
+    white-space: normal;
+    /* 折り返しを許可 */
+    flex-shrink: 0;
+}
+
+.job-examples-section .cta {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.job-examples-section .cta a {
+    display: inline-block;
+}
+
+/* === スマートフォン表示の調整 === */
+@media screen and (max-width: 767px) {
+    .job-examples-section ul {
+        gap: 15px;
+    }
+
+    .job-examples-section li {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* === 仕事例セクションのデザイン修正 === */
+
+/* カードの固定の高さを解除し、自動調整に */
+.job-examples-section li {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* カード本体の余白を調整 */
+.job-examples-section li .body {
+    padding: 15px;
+    flex-grow: 1;
+    /* 高さが可変でもbody部分が伸びるように */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 画像コンテナの調整 */
+.job-examples-section .images {
+    width: 100%;
+    /* 横幅いっぱいにする */
+    height: auto;
+    margin-bottom: 15px;
+    /* 画像と下の要素の間に余白 */
+    gap: 15px;
+}
+
+/* 画像自体のスタイル */
+.job-examples-section .images picture {
+    flex: 1;
+    /* 2枚の画像がスペースを分け合う */
+    overflow: hidden;
+    border-radius: 8px;
+    width: 50%;
+}
+
+.job-examples-section .images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* アスペクト比を保ったままコンテナを埋める */
+}
+
+/* 詳細項目エリアをFlexboxで2カラムに */
+.job-examples-section .items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+    /* 詳細項目をカードの下部に配置 */
+}
+
+/* 左側のリスト */
+.job-examples-section .items p.list {
+    flex-grow: 1;
+    /* 残りのスペースをすべて使う */
+    font-size: 16px;
+    white-space: normal;
+    /* 折り返しを許可 */
+    text-align: left;
+}
+
+/* 右側のサークル */
+.job-examples-section .items p.circle {
+    width: 70px;
+    height: 70px;
+    font-size: 14px;
+    flex-shrink: 0;
+    /* 縮まないようにする */
+}
+
+/* === サポート制度セクションのデザイン修正 === */
+
+.support-section .inner {
+    max-width: 700px;
+    /* このセクションの横幅を調整 */
+}
+
+.support-section .point {
+    display: none;
+    /* 古いレイアウトの要素を非表示 */
+}
+
+.support-section .support {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* 各項目の間のスペース */
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.support-section .support li {
+    display: flex;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* 左側のチェックマーク部分 */
+.support-section .support li .head {
+    flex: 0 0 60px;
+    /* 幅を60pxで固定 */
+    background: #e44d4d;
+    /* 赤色に変更 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.support-section .support li .head .icon {
+    color: #fff;
+    font-size: 32px;
+}
+
+/* 右側のテキストと画像部分 */
+.support-section .support li .body {
+    flex-grow: 1;
+    /* 残りの幅をすべて使用 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 15px;
+}
+
+.support-section .support li .body p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+.support-section .support li .body p em {
+    font-style: normal;
+}
+
+.support-section .support li .body .image {
+    flex-shrink: 0;
+    /* 画像が縮まないように */
+    width: 80px;
+}
+
+/* === スマートフォン表示の調整 === */
+@media (max-width: 540px) {
+    .support-section .support li .body {
+        padding: 12px 15px;
+    }
+
+    .support-section .support li .body p {
+        font-size: 16px;
+    }
+
+    .support-section .support li .body .image {
+        width: 60px;
+    }
+}
+
+/* === サポート制度の各項目の高さを統一する調整 === */
+@media screen and (max-width: 767px) {
+
+    .support-section .support li {
+        height: 95px;
+        /* すべての項目の高さを固定 */
+        box-sizing: border-box;
+    }
+
+}
+
+/* === サポート制度下のテキストとボタンを中央ぞろえにする === */
+.support-section .text-3 {
+    text-align: center;
+}
+
+/* === サポート制度セクションのボタンを強制的に中央ぞろえにする === */
+.support-section .cta {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+/* === サポート制度セクションの特定テキストを一行にする === */
+.support-section .text-1,
+.support-section .text-2 {
+    white-space: nowrap;
+    /* テキストの折り返しを禁止 */
+}
+
+@media screen and (max-width: 540px) {
+
+    .support-section .text-1,
+    .support-section .text-2 {
+        white-space: normal;
+        /* 折り返しを許可 */
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .support-section .text-1 {
+        font-size: 30px;
+    }
+
+    .support-section .text-2 {
+        font-size: 35px;
+    }
+}
+
+/* === 選ばれる理由セクションのデザイン修正（黒背景・金帯） === */
+
+/* セクション全体の背景と基本文字色 */
+section.reason-section {
+    background: linear-gradient(90deg, rgb(17, 17, 17) 0%, rgb(68, 68, 68) 100%);
+    color: #ffffff;
+    padding: 30px 15px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* 上部テキストの文字色を白に */
+.reason-section .text-1,
+.reason-section .text-2,
+.reason-section .text-3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.reason-section .text-1 {
+    font-size: 1.2rem;
+}
+
+.reason-section .text-2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.reason-section .text-3 {
+    font-size: 0.9rem;
+}
+
+/* 金色の数字にグラデーションを適用 */
+.reason-section .gold {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    display: inline-block;
+    background: linear-gradient(90deg, rgb(197, 136, 55) 0%, rgb(255, 244, 215) 56%, rgb(199, 146, 40) 99%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* リボンの背景を金色のグラデーションに */
+.reason-section .ribbon {
+    display: inline-block;
+    background: linear-gradient(90deg, rgb(197, 136, 55) 0%, rgb(255, 244, 215) 56%, rgb(199, 146, 40) 99%);
+    color: #000000;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 10px 30px;
+    margin: 15px 0 25px;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+}
+
+/* 理由カードのリスト */
+.reason-section .reason {
+    max-width: 600px;
+    margin: 20px auto 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reason-section .reason li {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.reason-section .reason li .title img,
+.reason-section .reason li .image img {
+    margin: 0 auto 15px;
+}
+
+.reason-section .reason li .text p {
+    color: #333;
+    /* カード内の文字は黒 */
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* === スマートフォン表示の調整 === */
+@media (max-width: 767px) {
+    .reason-section .gold {
+        font-size: 3rem;
+    }
+
+    .reason-section .text-2 {
+        font-size: 1.5rem;
+    }
+
+    .reason-section .ribbon {
+        font-size: 18px;
+    }
+}
+
+/* === 「選ばれる理由」カードの余白を詰める調整 === */
+
+/* カード自体の上下の余白を減らす */
+.reason-section .reason li {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* カード内の各要素（タイトル画像、メイン画像）の下の余白を減らす */
+.reason-section .reason li .title,
+.reason-section .reason li .image {
+    margin-bottom: 10px;
+}
+
+/* 理由セクション：画像と画像の余白を極限まで詰める */
+.reason-section .reason li .title img,
+.reason-section .reason li .image img {
+    margin-bottom: 5px;
+    /* デフォルト15pxから5pxに縮小 */
+    display: block;
+}
+
+.reason-section .reason li .title,
+.reason-section .reason li .image {
+    margin-bottom: 5px;
+    /* こちらも10px→5pxに縮小 */
+}
+
+/* 理由セクション：画像と画像の余白を極限まで詰める */
+.reason-section .reason li .title img,
+.reason-section .reason li .image img {
+    margin-bottom: 5px;
+    /* デフォルト15pxから5pxに縮小 */
+    display: block;
+}
+
+.reason-section .reason li .title,
+.reason-section .reason li .image {
+    margin-bottom: 5px;
+    /* こちらも10px→5pxに縮小 */
+}
+
+/* === 採用者インタビューセクション専用のスタイル === */
+
+.interview-section {
+    width: 100%;
+    background: #f3f2e8ff;
+    /* 背景色を他のセクションと統一 */
+    box-sizing: border-box;
+    padding: 30px 0;
+}
+
+.interview-section .inner {
+    max-width: 711px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.interview-section .ribbon {
+    display: inline-block;
+    background: linear-gradient(90deg, rgb(197, 136, 55) 0%, rgb(255, 244, 215) 56%, rgb(199, 146, 40) 99%);
+    color: #000000;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    padding: 4px 20px;
+    text-shadow: 0px 0px 15px rgb(255, 255, 255);
+}
+
+.interview-section .interview {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+}
+
+.interview-section .interview li {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.interview-section .interview li .image {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+}
+
+.interview-section .interview li .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.interview-section .interview li .text {
+    text-align: left;
+}
+
+.interview-section .interview li .text p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.interview-section .interview li .text em {
+    display: inline;
+    /* インラインに変更して自然なハイライトに */
+    background: #ffec76;
+    color: #000000;
+    font-style: normal;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.interview-section .interview li .text .author {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.interview-section .text-1 {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* === スマートフォン表示の調整 === */
+@media screen and (max-width: 540px) {
+    .interview-section .ribbon {
+        font-size: 18px;
+    }
+
+    .interview-section .interview li {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .interview-section .interview li .image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .interview-section .interview li .text {
+        text-align: center;
+    }
+
+    .interview-section .interview li .text p {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .interview-section .interview li .text .author {
+        text-align: center;
+    }
+
+    .interview-section .text-1 {
+        font-size: 16px;
+    }
+}
+
+/* === インタビューセクションのスマホ表示を横並びに修正 === */
+@media screen and (max-width: 767px) {
+
+    /* リスト項目を横並びに変更 */
+    section.interview-section ul.interview>li {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    /* 画像のサイズをスマホ用に調整 */
+    section.interview-section ul.interview>li>div.image {
+        flex-basis: 80px;
+        /* 横幅を80pxに */
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+    }
+
+    /* テキストのサイズをスマホ用に調整 */
+    section.interview-section ul.interview>li>div.text p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* 署名を右揃えに */
+    section.interview-section ul.interview>li>div.text p.author {
+        text-align: right;
+        font-size: 13px;
+    }
+}
+
+/* === インタビューセクションの白いカードの余白を詰める調整 === */
+
+/* カードとカードの間の隙間を狭くします */
+.interview-section .interview {
+    gap: 12px;
+}
+
+/* カードの内側の上下余白を減らします */
+.interview-section .interview li {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* 画像とテキストの間の隙間を狭くします */
+@media screen and (max-width: 767px) {
+    .interview-section .interview li {
+        gap: 10px;
+    }
+}
+
+.interview-section .interview li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    min-height: 90px;
+    /* 長方形化ポイント */
+}
+
+/* 画像サイズを小さく＆丸く */
+.interview-section .interview .image img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* テキストの詰め＆行間調整 */
+.interview-section .interview .text p {
+    font-size: 13px;
+    line-height: 1.3;
+    margin: 2px 0;
+}
+
+/* 作者名の小型化 */
+.interview-section .interview .text p.author {
+    font-size: 11px;
+    color: #666;
+    margin-top: 3px;
+}
+
+/* セクションの上下余白を軽く詰める */
+.interview-section {
+    padding: 15px 0;
+}
+
+/* === よくある質問セクション専用のスタイル === */
+
+.faq-section {
+    width: 100%;
+    background: #f3f2e8ff;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.faq-section .inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.faq-section .ribbon {
+    background: #ffffff;
+    padding: 15px;
+    color: #111111;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.faq-section .faq {
+    width: 100%;
+    max-width: 800px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 15px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+.faq-section .faq .label {
+    background: #f0ad4e;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin: 0 auto 20px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.faq-section .faq dl {
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.faq-section .faq dt {
+    color: #4a4a4a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.faq-section .faq dt::before {
+    content: "Q";
+    background: rgb(227, 49, 49);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.faq-section .faq dd {
+    margin: 0;
+    padding: 15px 0 15px 40px;
+    /* Qアイコンの分だけインデント */
+    box-sizing: border-box;
+}
+
+.faq-section .faq dd p {
+    color: #4a4a4a;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 5px 0 0 0;
+}
+
+.faq-section .faq dd em {
+    font-size: 1em;
+    /* 親要素と同じサイズに */
+    color: rgb(227, 49, 49);
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+
+/* === スマートフォン表示の調整 === */
+@media screen and (max-width: 768px) {
+    .faq-section .faq {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .faq-section .faq .label {
+        font-size: 16px;
+    }
+
+    .faq-section .faq dt {
+        font-size: 15px;
+    }
+
+    .faq-section .faq dd {
+        padding-left: 15px;
+    }
+
+    .faq-section .faq dd p {
+        font-size: 14px;
+    }
+}
+
+/* === reason-section内のCTAボタンを中央ぞろえにする === */
+.reason-section .cta {
+    display: flex;
+    justify-content: center;
+}
